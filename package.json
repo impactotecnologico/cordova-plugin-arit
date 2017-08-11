@@ -1,0 +1,11 @@
+{
+  "name": "cordova-plugin-activity-test",
+  "version": "0.0.1",
+  "cordova": {
+    "id": "cordova-plugin-activity-test",
+    "platforms": [
+      "android"
+    ]
+  },
+  "description": "Test para mostrar un activity en cordova"
+}

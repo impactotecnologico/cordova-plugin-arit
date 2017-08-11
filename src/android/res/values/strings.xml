@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tecno Boda</string>
+    <string name="launcher_name">@string/app_name</string>
+    <string name="activity_name">@string/launcher_name</string>
+    <string name="title_activity_menu">Bienvenido!</string>
+    <string name="action_credits">Creditos</string>
+    <string name="recognition_only_tap">Toca para escanear</string>
+    <string name="recognition_only_toast_picture_error">Error tratando de tomar la foto.</string>
+    <string name="recognition_only_toast_nothing_found">No encontamos nada... prueba con otra imagen</string>
+    <string name="title_activity_main">Escanea!</string>
+    <string name="title_menu">Escanea tu minuta</string>
+    <string name="title_welcome">Escanea nuestra foto</string>
+    <string name="help_menu">Escanea tu minuta para ver el detalle de los platos</string>
+    <string name="help_welcome">Escanea nuestra foto para darte la bienvenida a nuestro banquete</string>
+    <string name="help_menu_step2">Toca cualquiera de los platos para ver más detalles</string>
+    <string name="finder_searching">Escaneando...</string>
+    <string name="action_creditos">Creditos</string>
+    <string name="text_credits">Hemos creado esta aplicación para todos nuestos invitados. Esperamos que te haya gustado y que hayas pasado un buen rato. \n\nGracias por haber venido a nuestra boda. \n\nEsta es una aplicación de Impacto Tecnológico</string>
+</resources>
