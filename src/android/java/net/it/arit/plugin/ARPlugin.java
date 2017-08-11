@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.Button;
 
@@ -54,81 +55,81 @@ public class ARPlugin extends CordovaPlugin {
   private String action;
 
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-        super.initialize(cordova, webView);
-     }
+    super.initialize(cordova, webView);
+  }
 
-    @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        this.context = cordova.getActivity().getApplicationContext();
-        this.activity = cordova.getActivity();
-        this.action = action;
+  @Override
+  public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    this.context = cordova.getActivity().getApplicationContext();
+    this.activity = cordova.getActivity();
+    this.action = action;
 
-        try {
-            JSONObject json = new GetRemoteAssets().execute(TECHNOIMPACT + CONFIG_JSON).get();
+    try {
+      JSONObject json = new GetRemoteAssets().execute(TECHNOIMPACT + CONFIG_JSON).get();
 
-            try {
-                AugmentedActivity.delayVisualScan = json.getInt("delay");
-                AugmentedActivity.CLOUD_COLLECTION_TOKEN = json.getString("arCollection");
-                AugmentedActivity.arDirectory = json.getString("arMobileDirectory");
-                baseUrl = json.getString("urlBase");
-                imagesAR = json.getJSONArray("imagesAR");
-                videosAR = json.getJSONArray("videosAR");
-                minis = json.getJSONArray("minis");
-                int items = imagesAR.length();
-                for (int i= 0; i <items; i++){
-                    imagesAR.put(items+i,"info"+(i+1)+".png"); // para incluir tantas imagenes info como imagenes base existan
-                }
-                items = imagesAR.length();
+      try {
+        AugmentedActivity.delayVisualScan = json.getInt("delay");
+        AugmentedActivity.CLOUD_COLLECTION_TOKEN = json.getString("arCollection");
+        AugmentedActivity.arDirectory = json.getString("arMobileDirectory");
+        baseUrl = json.getString("urlBase");
+        imagesAR = json.getJSONArray("imagesAR");
+        videosAR = json.getJSONArray("videosAR");
+        minis = json.getJSONArray("minis");
+        int items = imagesAR.length();
+        for (int i = 0; i < items; i++) {
+          imagesAR.put(items + i, "info" + (i + 1) + ".png"); // para incluir tantas imagenes info como imagenes base existan
+        }
+        items = imagesAR.length();
 
-                ArrayList<String> simpleListImages = new ArrayList<String>();
-                for (int i=0;i<items;i++){
-                    simpleListImages.add(imagesAR.get(i).toString());
-                }
-
-                items = videosAR.length();
-
-                ArrayList<String> simpleListVideos = new ArrayList<String>();
-                for (int i=0;i<items;i++){
-                    simpleListVideos.add(videosAR.get(i).toString());
-                }
-
-                items = minis.length();
-
-                ArrayList<String> simpleListMinis = new ArrayList<String>();
-                for (int i=0;i<items;i++){
-                    simpleListMinis.add(minis.get(i).toString());
-                }
-
-
-                new SendHttpRequestTask(this.activity).execute(simpleListImages, simpleListVideos, simpleListMinis);
-
-            } catch (JSONException e) {
-                AugmentedActivity.delayVisualScan = 1000;
-                e.printStackTrace();
-            }
-
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
+        ArrayList<String> simpleListImages = new ArrayList<String>();
+        for (int i = 0; i < items; i++) {
+          simpleListImages.add(imagesAR.get(i).toString());
         }
 
-        return true;
+        items = videosAR.length();
+
+        ArrayList<String> simpleListVideos = new ArrayList<String>();
+        for (int i = 0; i < items; i++) {
+          simpleListVideos.add(videosAR.get(i).toString());
+        }
+
+        items = minis.length();
+
+        ArrayList<String> simpleListMinis = new ArrayList<String>();
+        for (int i = 0; i < items; i++) {
+          simpleListMinis.add(minis.get(i).toString());
+        }
+
+
+        new SendHttpRequestTask(this.activity).execute(simpleListImages, simpleListVideos, simpleListMinis);
+
+      } catch (JSONException e) {
+        AugmentedActivity.delayVisualScan = 1000;
+        e.printStackTrace();
+      }
+
+
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    } catch (ExecutionException e) {
+      e.printStackTrace();
     }
 
-    private void openNewActivity(Context context, String action) {
-        Intent intent = new Intent(context, AugmentedActivity.class);
+    return true;
+  }
 
-        if(action.equals("bienvenida")) {
-            intent.putExtra(AugmentedActivity.ACCION,Acciones.BIENVENIDA);
-        }
-        if(action.equals("menu")){
-            intent.putExtra(AugmentedActivity.ACCION,Acciones.MENU);
-        }
-        System.out.println("Entra en vista");
-        this.cordova.getActivity().startActivity(intent);
+  private void openNewActivity(Context context, String action) {
+    Intent intent = new Intent(context, AugmentedActivity.class);
+
+    if (action.equals("bienvenida")) {
+      intent.putExtra(AugmentedActivity.ACCION, Acciones.BIENVENIDA);
     }
+    if (action.equals("menu")) {
+      intent.putExtra(AugmentedActivity.ACCION, Acciones.MENU);
+    }
+    System.out.println("Entra en vista");
+    this.cordova.getActivity().startActivity(intent);
+  }
 
   private class GetRemoteAssets extends AsyncTask<String, Integer, JSONObject> {
     @Override
@@ -168,21 +169,23 @@ public class ARPlugin extends CordovaPlugin {
     }
   }
 
-  private class SendHttpRequestTask extends AsyncTask<ArrayList<String>, Integer, Map<String,InputStream>> {
+  private class SendHttpRequestTask extends AsyncTask<ArrayList<String>, Integer, Map<String, InputStream>> {
 
     private ProgressDialog dialog;
     private Activity activity;
     private String mobileImagePath;
+    private Handler handler;
     private static final int BUFFER_SIZE = 4096;
 
-    public SendHttpRequestTask(Activity activity){
+    public SendHttpRequestTask(Activity activity) {
       this.activity = activity;
-      this.dialog = new ProgressDialog(activity);
+      this.dialog = new ProgressDialog(this.activity);
       this.mobileImagePath = Environment.getExternalStorageDirectory() + "/" + AugmentedActivity.arDirectory + "/";
     }
 
     @Override
     protected void onPreExecute() {
+      this.handler = new Handler();
       this.dialog.setMessage("Preparando Realidad Aumentada....");
       this.dialog.show();
     }
@@ -190,15 +193,22 @@ public class ARPlugin extends CordovaPlugin {
     @Override
     protected void onProgressUpdate(Integer... values) {
       super.onProgressUpdate(values);
-      this.dialog.setMessage("Preparando Realidad Aumentada..." + values[0]);
+      /*
+      final int valor = values[0];
+      this.handler.post(new Runnable() {
+        public void run() {
+          dialog.setMessage("Preparando Realidad Aumentada..." + valor);
+        }
+      });
+      */
     }
 
     @Override
-    protected Map<String,InputStream> doInBackground(ArrayList<String>... remoteResources) {
+    protected Map<String, InputStream> doInBackground(ArrayList<String>... remoteResources) {
       try {
 
-        if (remoteResources.length != 3){
-            Log.e(TAG,"Error en listado de recursos para descarga",new Exception("Error en remoteResources. Size: " + remoteResources.length));
+        if (remoteResources.length != 3) {
+          Log.e(TAG, "Error en listado de recursos para descarga", new Exception("Error en remoteResources. Size: " + remoteResources.length));
         }
 
         ArrayList<String> imagesArray = remoteResources[0];
@@ -211,34 +221,34 @@ public class ARPlugin extends CordovaPlugin {
         contador = downloadAndCreate(videosArray, contador);
         downloadAndCreate(minisArray, contador);
 
-        Log.d(TAG,"PLATOS:" +AugmentedActivity.platosURL.toString().replace('[', '{').replace(']', '}'));
+        Log.d(TAG, "PLATOS:" + AugmentedActivity.platosURL.toString().replace('[', '{').replace(']', '}'));
 
         //return itemsMap;
-    }catch (Exception e){
-        Log.e(TAG,e.getMessage(),e);
+      } catch (Exception e) {
+        Log.e(TAG, e.getMessage(), e);
+      }
+      return null;
     }
-    return null;
-  }
 
-  private int downloadAndCreate(ArrayList<String> filesArray, int contador) throws IOException {
+    private int downloadAndCreate(ArrayList<String> filesArray, int contador) throws IOException {
 
-    for (String singleName : filesArray) {
+      for (String singleName : filesArray) {
 
         publishProgress(contador);
         File file = new File(new File(mobileImagePath), singleName);
 
-        if (file.exists()){
-            if (singleName.contains("mini")){
-                AugmentedActivity.miniaturas.add(singleName);
-            } else if (singleName.contains("mp4")){
-                AugmentedActivity.videos.add(singleName);
-            } else if (singleName.contains("info")){
-                Log.d(TAG,"Archivo info"); // solo se indica que se tiene. Por ahora se usan directamente según nombre en AugmentedActivity
-            } else {
-                AugmentedActivity.platosURL.add(singleName);
-            }
-            publishProgress(contador-=1);
-            continue;
+        if (file.exists()) {
+          if (singleName.contains("mini")) {
+            AugmentedActivity.miniaturas.add(singleName);
+          } else if (singleName.contains("mp4")) {
+            AugmentedActivity.videos.add(singleName);
+          } else if (singleName.contains("info")) {
+            Log.d(TAG, "Archivo info"); // solo se indica que se tiene. Por ahora se usan directamente según nombre en AugmentedActivity
+          } else {
+            AugmentedActivity.platosURL.add(singleName);
+          }
+          publishProgress(contador -= 1);
+          continue;
         }
 
         URL url = new URL(baseUrl + singleName);
@@ -247,55 +257,55 @@ public class ARPlugin extends CordovaPlugin {
         connection.connect();
         InputStream inputStream = connection.getInputStream();
 
-        Log.d(TAG,"Archivo Obtenido: " + singleName);
+        Log.d(TAG, "Archivo Obtenido: " + singleName);
 
-        publishProgress(contador-=1);
+        publishProgress(contador -= 1);
 
         try {
-            FileOutputStream out = new FileOutputStream(file);
+          FileOutputStream out = new FileOutputStream(file);
 
-            int bytesRead = -1;
-            byte[] buffer = new byte[BUFFER_SIZE];
-            while ((bytesRead = inputStream.read(buffer)) != -1) {
-                out.write(buffer, 0, bytesRead);
-            }
+          int bytesRead = -1;
+          byte[] buffer = new byte[BUFFER_SIZE];
+          while ((bytesRead = inputStream.read(buffer)) != -1) {
+            out.write(buffer, 0, bytesRead);
+          }
 
-            inputStream.close();
-            out.flush();
-            out.close();
+          inputStream.close();
+          out.flush();
+          out.close();
 
-            Log.d(TAG,"Archivo creado: " + file.exists() + " - " + file.getAbsolutePath());
+          Log.d(TAG, "Archivo creado: " + file.exists() + " - " + file.getAbsolutePath());
 
-            if (!singleName.contains("mp4") && !singleName.contains("mini") && !singleName.contains("info")){
-                AugmentedActivity.platosURL.add(singleName);
-            }
+          if (!singleName.contains("mp4") && !singleName.contains("mini") && !singleName.contains("info")) {
+            AugmentedActivity.platosURL.add(singleName);
+          }
 
-            if (singleName.contains("mini")){
-                AugmentedActivity.miniaturas.add(singleName);
-            } else if (singleName.contains("mp4")){
-                AugmentedActivity.videos.add(singleName);
-            } else if (singleName.contains("info")){
-                AugmentedActivity.platosURL.add(singleName);
-            }
+          if (singleName.contains("mini")) {
+            AugmentedActivity.miniaturas.add(singleName);
+          } else if (singleName.contains("mp4")) {
+            AugmentedActivity.videos.add(singleName);
+          } else if (singleName.contains("info")) {
+            AugmentedActivity.platosURL.add(singleName);
+          }
 
         } catch (Exception e) {
-            e.printStackTrace();
+          e.printStackTrace();
         }
 
-        contador-=1;
+        contador -= 1;
+      }
+      return contador;
     }
-    return contador;
-  }
 
 
     @Override
-    protected void onPostExecute(Map<String,InputStream> images) {
+    protected void onPostExecute(Map<String, InputStream> images) {
 
       if (dialog.isShowing()) {
         dialog.dismiss();
       }
 
-      ARPlugin.this.openNewActivity(ARPlugin.this.context,ARPlugin.this.action);
+      ARPlugin.this.openNewActivity(ARPlugin.this.context, ARPlugin.this.action);
     }
   }
 }
