@@ -1,11 +1,19 @@
 {
-  "name": "cordova-plugin-activity-test",
-  "version": "0.0.1",
-  "cordova": {
-    "id": "cordova-plugin-activity-test",
-    "platforms": [
-      "android"
-    ]
-  },
-  "description": "Test para mostrar un activity en cordova"
+    "name": "cordova-plugin-arit",
+    "version": "1.0.0",
+    "description": "Plugin para realidad aumentada usando CraftAR de Catchoom",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/impactotecnologico/cordova-plugin-arit.git"
+    },
+    "keywords": [],
+    "author": "Impacto Tecnologico",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/impactotecnologico/cordova-plugin-arit/issues"
+    },
+    "homepage": "https://github.com/impactotecnologico/cordova-plugin-arit#readme"
 }
