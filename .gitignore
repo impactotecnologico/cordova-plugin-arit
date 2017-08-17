@@ -1,2 +1,5 @@
 
 .DS_Store
+src/ios/CraftARAugmentedRealitySDK.framework/*
+src/ios/Pods.framework/*
+src/ios/CraftARResourcesAR.bundle/*

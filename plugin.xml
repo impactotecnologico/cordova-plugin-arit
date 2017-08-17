@@ -4,6 +4,62 @@
     <js-module name="ARPlugin" src="www/ARPlugin.js">
         <clobbers target="ARPlugin" />
     </js-module>
+
+    <platform name="ios">
+    <hook type="before_plugin_install" src="hooks/before_plugin_install/000-create-symlinks.sh" />
+        <config-file target="config.xml" parent="/*">
+                <feature name="CraftAR">
+                    <param name="ios-package" value="CraftARPlugin"/>
+                </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>Open the camera to recognise objects</string>
+        </config-file>
+        
+        <header-file src="src/ios/ARPlugin.h" />
+        <header-file src="src/ios/Domains.h" />
+        <header-file src="src/ios/ApplicationController.h" />
+        <header-file src="src/ios/NSArray.h" />
+        <header-file src="src/ios/AugmentedViewController.h" />
+        <header-file src="src/ios/Scene.h" />
+        <header-file src="src/ios/BaseApiController.h" />
+        <header-file src="src/ios/Config.h" />
+        <header-file src="src/ios/ViewUtils.h" />
+        <header-file src="src/ios/Constants.h" />
+
+        <source-file src="src/ios/ARPlugin.m" />
+        <source-file src="src/ios/ApplicationController.m" />
+        <source-file src="src/ios/NSArray.m" />
+        <source-file src="src/ios/AugmentedViewController.m" />
+        <source-file src="src/ios/Scene.m" />
+        <source-file src="src/ios/BaseApiController.m" />
+        <source-file src="src/ios/Config.m" />
+        <source-file src="src/ios/ViewUtils.m" />
+        <source-file src="src/ios/Constants.m" />
+
+        <resource-file src="src/ios/next.png" />
+        <resource-file src="src/ios/prev.png" />
+        <resource-file src="src/ios/CraftARResourcesAR.bundle" />
+        <resource-file src="src/ios/View.storyboard" />
+
+        <!-- Frameworks not added on production plugin --> 
+        <framework src="src/ios/Pods.framework" custom="true"  /> 
+        <framework src="src/ios/CraftARAugmentedRealitySDK.framework" custom="true"  /> 
+        
+        <framework src="AudioToolbox.framework" />
+        <framework src="CoreMedia.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="AVFoundation.framework" />
+        <framework src="libstdc++.dylib" />
+        <framework src="libc++.dylib" />
+        <framework src="libz.dylib" />
+        <framework src="CoreLocation.framework" />
+        <framework src="AssetsLibrary.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="MobileCoreServices.framework" />
+     </platform>
+
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
             <feature name="ARPlugin">
