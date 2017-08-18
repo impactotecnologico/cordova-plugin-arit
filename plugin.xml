@@ -8,8 +8,8 @@
     <platform name="ios">
     <hook type="before_plugin_install" src="hooks/before_plugin_install/000-create-symlinks.sh" />
         <config-file target="config.xml" parent="/*">
-                <feature name="CraftAR">
-                    <param name="ios-package" value="CraftARPlugin"/>
+                <feature name="ARPlugin">
+                    <param name="ios-package" value="ARPlugin"/>
                 </feature>
         </config-file>
 
@@ -40,8 +40,8 @@
 
         <resource-file src="src/ios/next.png" />
         <resource-file src="src/ios/prev.png" />
-        <resource-file src="src/ios/CraftARResourcesAR.bundle" />
         <resource-file src="src/ios/View.storyboard" />
+        <resource-file src="src/ios/CraftARResourcesAR.bundle" />
 
         <!-- Frameworks not added on production plugin --> 
         <framework src="src/ios/Pods.framework" custom="true"  /> 
