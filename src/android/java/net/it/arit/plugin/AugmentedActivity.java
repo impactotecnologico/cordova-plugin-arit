@@ -375,10 +375,8 @@ public class AugmentedActivity extends CraftARActivity implements CraftARSearchR
                 CraftARItem item = result.getItem();
                 if (item.isAR() && item.getItemName().equals(MINUTA)) {
                     menuAugmented((CraftARItemAR) item);
-
-
                 } else if (item.isAR() && item.getItemName().equals(BIENVENIDA)) {
-
+                    welcomeAugmented((CraftARItemAR) item);
                 }
 
             }
@@ -461,9 +459,9 @@ public class AugmentedActivity extends CraftARActivity implements CraftARSearchR
         v.setVisibility(View.INVISIBLE);
     }
 
-    /*
     @Override
     public void onPause() {
+    super.onPause();
         mCraftARSDK.stopFinder();
         mTracking.stopTracking();
         mTracking.removeAllItems();
@@ -473,7 +471,7 @@ public class AugmentedActivity extends CraftARActivity implements CraftARSearchR
     @Override
     public void onResume()
     {
+    super.onResume();
         this.onPostCreate();
     }
-    */
 }
