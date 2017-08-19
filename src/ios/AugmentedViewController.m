@@ -59,6 +59,8 @@
          [self setConfig:config];
      }];
     
+    [[ApplicationController Instance] setContinueProccess:YES];
+    
     [[self viewInfoBackground] setBackgroundColor:[UIColor whiteColor]];
     if ([[self action] isEqualToString: ACTION_VIDEO])
     {
@@ -97,6 +99,8 @@
 
 - (void) viewWillDisappear:(BOOL)animated
 {
+    [[ApplicationController Instance] setContinueProccess:NO];
+    [[ApplicationController Instance] clearScenesOfType: [self currentTypeContent]];
     [[self sdk]  stopCapture];
     [[self tracking]  removeAllARItems];
     [super viewWillDisappear:animated];
@@ -137,12 +141,15 @@
         case TypeContentImage:
         {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(),
-                           ^{
-                               [[self labelInfoMessage] setText: TEXT_HELP_MENU_STEP_2];
-                               [[ApplicationController Instance] getConfigOnSuccess:^(Config * config) {
-                                   [[self viewInfoBackground] setBackgroundColor: [ViewUtils colorFromHexString: [config colorRosa]]];
-                               }];
-                           });
+            ^{
+                if ([[ApplicationController Instance] continueProccess])
+                {
+                   [[self labelInfoMessage] setText: TEXT_HELP_MENU_STEP_2];
+                   [[ApplicationController Instance] getConfigOnSuccess:^(Config * config) {
+                       [[self viewInfoBackground] setBackgroundColor: [ViewUtils colorFromHexString: [config colorRosa]]];
+                   }];
+                }
+            });
             break;
         }
             
@@ -156,7 +163,7 @@
 -(void) updateCurrentScene
 {
     // Si cambia el contenido se borra el cart...
-    [self setCart: nil];
+    [self removeCart];
     
     if ([self currentScene])
     {
@@ -189,22 +196,33 @@
     return content;
 }
 
+-(void) removeCart
+{
+    
+    if ([self cart])
+    {
+        [[self currentItem] removeContent: [self cart]];
+        [self setIsVisibleCard: NO];
+        [self setCart: nil];
+    }
+}
+
 -(void) toggleCard
 {
     if ([self isVisibleCard])
     {
-        [[self currentItem] removeContent: [self cart]];
-        [self setIsVisibleCard: NO];
+        [self removeCart];
     }
     else
     {
         if ([self cart] == nil)
         {
-            NSString *pathResource = [[self config] pathARResource: [NSString stringWithFormat:@"info%d.png", [self currentIndex]]];
+            NSString *pathResource = [[self config] pathARResource: [NSString stringWithFormat:@"info%d.png", [self currentIndex]+1]];
             CraftARTrackingContent* content = [[CraftARTrackingContentImage alloc] initWithImageFromURL: [NSURL fileURLWithPath:pathResource]];
             [content setWrapMode: CRAFTAR_TRACKING_WRAP_ASPECT_FIT];
             [content setTranslation: CATransform3DMakeTranslation(0.0, 0.0, 142.63)];
             [content setScale: CATransform3DMakeScale(1.6, 1.6, 1.6)];
+            [self setCart:content];
         }
         
         [[self currentItem] addContent:[self cart]];
@@ -251,7 +269,6 @@
             if ([[item name] isEqualToString: AR_COLLECTION_TYPE_MEMORANDUM] || [[item name] isEqualToString: AR_COLLECTION_TYPE_WELCOME])
             {
                 [self augmentedContent];
-                //[self testContent];
             }
             
             
@@ -259,6 +276,10 @@
             NSError *err = [[self tracking] addARItem: [self currentItem]];
             if (err) {
                 NSLog(@"Error adding AR item: %@", err.localizedDescription);
+            }
+            else
+            {
+                [[self tracking] startTracking];
             }
         }
     }
@@ -296,7 +317,7 @@
         case CRAFTAR_CONTENT_TOUCH_DOWN:
             NSLog(@"Touch down: %@", content.uuid);
             
-            if ([[[self prevButton] uuid] isEqualToString: content.uuid]) // touch prev button
+            if ([content isEqual:[self prevButton]])//([[[self prevButton] uuid] isEqualToString: content.uuid]) // touch prev button
             {
                 if ([self currentIndex] > 0)
                 {
@@ -309,7 +330,7 @@
                 
                 [self updateCurrentScene];
             }
-            else if ([[[self nextButton] uuid] isEqualToString: content.uuid]) // touch next button
+            else if ([content isEqual:[self nextButton]])//([[[self nextButton] uuid] isEqualToString: content.uuid]) // touch next button
             {
                 int lastResource = [self countResources] - 1;
                 if ([self currentIndex] >= lastResource)
@@ -341,6 +362,7 @@
             break;
     }
 }
+
 
 #pragma mark -
 - (void)didReceiveMemoryWarning
