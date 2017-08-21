@@ -14,6 +14,7 @@
 @interface ARPlugin()
 
 @property NSString* action;
+@property NSString* lastCallBackId;
 
 @end
 
@@ -24,8 +25,11 @@
 {
     NSLog(@"AR-IT plugin - StarLoad");
     
-    if ([command.arguments count] != 1){
-        [self sentError:command.callbackId];
+    [self setLastCallBackId: command.callbackId];
+
+    if ([command.arguments count] != 1)
+    {
+        [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString: [self lastCallBackId]];
         return;
     }
     NSDictionary *dict = [command.arguments objectAtIndex:0];
@@ -50,7 +54,7 @@
 
 - (void)didChangeProcessStoreResourceMessage: (NSString*) message percentProcess:(float) percent
 {
-    NSLog(@"AR-IT plugin - %@ : %.02f%", message, percent);
+    NSLog(@"AR-IT plugin - %@ : %.02f", message, percent);
 }
 
 -(void) didFinishedStoreResource
@@ -63,7 +67,7 @@
     [self.viewController presentViewController:viewController
                                       animated:YES
                                     completion:^{
-                                        [self sentSuccess:command.callbackId];
+                                        [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: [self lastCallBackId]];
                                     }];
 }
 

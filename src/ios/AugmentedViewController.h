@@ -6,9 +6,9 @@
 //  Copyright © 2017 Roysbert Salinas. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface AugmentedViewController : ViewController
+@interface AugmentedViewController : UIViewController
 
 @property NSString *action;
 

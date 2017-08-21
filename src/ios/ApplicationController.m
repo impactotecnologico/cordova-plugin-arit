@@ -68,6 +68,20 @@
     return scene;
 }
 
+-(void) clearScenesOfType: (TypeContent) type
+{
+    switch (type) {
+        case TypeContentImage:
+            [[self scenesImage] removeAllObjects];
+            break;
+        case TypeContentVideo:
+            [[self scenesVideo] removeAllObjects];
+            break;
+        default:
+            break;
+    }
+}
+
 + (ApplicationController*) Instance
 {
     static ApplicationController* _instance = nil;
