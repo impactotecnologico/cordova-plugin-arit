@@ -43,11 +43,11 @@
         <resource-file src="src/ios/next.png" />
         <resource-file src="src/ios/prev.png" />
         <resource-file src="src/ios/Main.storyboard" />
-        <resource-file src="src/ios/CatchroomSDK/CraftARResourcesAR.bundle" />
+        <resource-file src="src/ios/CatchoomSDK/CraftARResourcesAR.bundle" />
 
         <!-- Frameworks not added on production plugin --> 
-        <framework src="src/ios/CatchroomSDK/Pods.framework" custom="true"  /> 
-        <framework src="src/ios/CatchroomSDK/CraftARAugmentedRealitySDK.framework" custom="true"  /> 
+        <framework src="src/ios/CatchoomSDK/Pods.framework" custom="true"  /> 
+        <framework src="src/ios/CatchoomSDK/CraftARAugmentedRealitySDK.framework" custom="true"  /> 
         
         <framework src="AudioToolbox.framework" />
         <framework src="CoreMedia.framework" />

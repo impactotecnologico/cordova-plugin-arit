@@ -467,7 +467,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"${PROJECT_DIR}/..",
-					"$(PROJECT_DIR)/ios/CatchroomSDK",
+					"$(PROJECT_DIR)/ios/CatchoomSDK",
 					"$(PROJECT_DIR)/ios/CatchoomSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -505,7 +505,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"${PROJECT_DIR}/..",
-					"$(PROJECT_DIR)/ios/CatchroomSDK",
+					"$(PROJECT_DIR)/ios/CatchoomSDK",
 					"$(PROJECT_DIR)/ios/CatchoomSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
