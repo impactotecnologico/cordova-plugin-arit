@@ -72,9 +72,9 @@
 		584CD6151F42E0E300AA5909 /* NSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArray.m; sourceTree = "<group>"; };
 		58716EDB1F418CF900B96F73 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
 		58716EDC1F418CF900B96F73 /* prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev.png; sourceTree = "<group>"; };
-		588D37CB1F4BCECB00B1245A /* CraftARAugmentedRealitySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CraftARAugmentedRealitySDK.framework; path = ios/CatchroomSDK/CraftARAugmentedRealitySDK.framework; sourceTree = "<group>"; };
-		588D37CC1F4BCECB00B1245A /* CraftARResourcesAR.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CraftARResourcesAR.bundle; path = ios/CatchroomSDK/CraftARResourcesAR.bundle; sourceTree = "<group>"; };
-		588D37CD1F4BCECB00B1245A /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = ios/CatchroomSDK/Pods.framework; sourceTree = "<group>"; };
+		588D37CB1F4BCECB00B1245A /* CraftARAugmentedRealitySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CraftARAugmentedRealitySDK.framework; path = ios/CatchoomSDK/CraftARAugmentedRealitySDK.framework; sourceTree = "<group>"; };
+		588D37CC1F4BCECB00B1245A /* CraftARResourcesAR.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CraftARResourcesAR.bundle; path = ios/CatchoomSDK/CraftARResourcesAR.bundle; sourceTree = "<group>"; };
+		588D37CD1F4BCECB00B1245A /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = ios/CatchoomSDK/Pods.framework; sourceTree = "<group>"; };
 		588D37D11F4BD07A00B1245A /* ARPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPlugin.h; sourceTree = "<group>"; };
 		588D37D21F4BD07A00B1245A /* ARPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPlugin.m; sourceTree = "<group>"; };
 		588D37E11F4C000100B1245A /* WaitingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitingViewController.h; sourceTree = "<group>"; };
