@@ -38,7 +38,7 @@
 }
 
 
-- (Scene*) getSceneAt: (int) index ofType: (TypeContent) type
+- (Scene*) getSceneAt: (unsigned long) index ofType: (TypeContent) type
 {
     Scene* scene = nil;
     NSMutableDictionary* resources;
@@ -53,7 +53,7 @@
             break;
     }
     
-    id resource = [resources objectForKey: [NSString stringWithFormat:@"%d", index]];
+    id resource = [resources objectForKey: [NSString stringWithFormat:@"%lu", index]];
     
     if (resource)
     {
@@ -63,7 +63,7 @@
     if (scene == nil)
     {
         scene = [Scene makeSceneAt:index ofType:type];
-        [resources setValue:scene forKey: [NSString stringWithFormat:@"%d", index]];
+        [resources setValue:scene forKey: [NSString stringWithFormat:@"%lu", index]];
     }
     
     return scene;
@@ -85,13 +85,13 @@
 
 + (ApplicationController*) Instance
 {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    static ApplicationController* _instance = nil;
     
-    if ([appDelegate controller] == nil)
+    if (_instance == nil)
     {
-        [appDelegate setController: [[ApplicationController alloc] init]];
+        _instance = [[ApplicationController alloc] init];
     }
-    return [appDelegate controller];
+    return _instance;
 }
 
 - (void) getConfigOnSuccess:(void(^)(Config*)) handler
@@ -123,7 +123,7 @@
         float total = 0;
         
         NSArray* infos = [[[self config] imagesAR] mapObjectsUsingBlock:^id(id obj, NSUInteger idx) {
-            return [NSString stringWithFormat:@"info%d.png", idx+1];
+            return [NSString stringWithFormat:@"info%u.png", idx+1];
         }];
         
         NSArray* collectionResources = @[

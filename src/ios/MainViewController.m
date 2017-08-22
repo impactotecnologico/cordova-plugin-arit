@@ -11,20 +11,13 @@
 #import "MainViewController.h"
 #import "AugmentedViewController.h"
 #import "ApplicationController.h"
-/*
-#import <Photos/PHAsset.h>
-#import <Photos/PHFetchResult.h>
-#import <Photos/PHImageManager.h>
-#import <Photos/PHContentEditingInput.h>
-#import <Photos/PHAssetChangeRequest.h>*/
+#import "WaitingViewController.h"
 
 @interface MainViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonMenu;
 @property (weak, nonatomic) IBOutlet UIButton *buttonVideo;
-@property (weak, nonatomic) IBOutlet UIView *viewProcessDialog;
-@property (weak, nonatomic) IBOutlet UILabel *labelProcessMessage;
-@property (weak, nonatomic) IBOutlet UILabel *labelProcessPercent;
+@property WaitingViewController *waitingView;
 
 
 @property NSString *action;
@@ -37,6 +30,8 @@
     [super viewDidLoad];
     
     [self setAction: ACTION_MENU];
+    
+    [self setWaitingView: [WaitingViewController makeInViewController:self]];
     
     [[ApplicationController Instance] getConfigOnSuccess:^(Config *config)  {
         [self didReceiveConfig:config];
@@ -51,8 +46,6 @@
 
 - (void)didReceiveConfig: (Config*) config
 {
-    NSLog(@"didReceiveConfig");
-    
     [[ApplicationController Instance] getResourcesAndStore:^(NSString *message, float percent) {
         [self didChangeProcessStoreResourceMessage:message percentProcess:percent];
     } callback:^{
@@ -62,13 +55,13 @@
 
 - (void)didChangeProcessStoreResourceMessage: (NSString*) message percentProcess:(float) percent
 {
-    [[self labelProcessMessage] setText:message];
-    [[self labelProcessPercent] setText: [NSString stringWithFormat:@"%.02f", percent]];
+    [[self waitingView] setMessage: message];
+    [[self waitingView] setPercent: percent];
 }
 
 -(void) didFinishedStoreResource
 {
-    [[self viewProcessDialog] setHidden:YES];
+    [[self waitingView] dismiss];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,22 +71,20 @@
 
 - (IBAction)onTapButton:(UIButton*)sender
 {
-    
     if ([sender isEqual: [self buttonVideo]])
         [self setAction: ACTION_VIDEO];
     else
         [self setAction: ACTION_MENU];
     
-    [self performSegueWithIdentifier:AUGMENTED_SEGUE sender:self];
+    AugmentedViewController *view = [AugmentedViewController Instance];
+    [view setAction: [self action]];
+    
+    [self presentViewController:view animated:YES completion:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:AUGMENTED_SEGUE])
-    {
-        AugmentedViewController *view = (AugmentedViewController *) [segue destinationViewController];
-        [view setAction: [self action]];
-    }
+    
 }
 
 @end

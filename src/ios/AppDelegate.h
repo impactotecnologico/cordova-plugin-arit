@@ -5,6 +5,4 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property ApplicationController* controller;
-
 @end

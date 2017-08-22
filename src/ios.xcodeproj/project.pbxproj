@@ -18,13 +18,16 @@
 		584CD6161F42E0E300AA5909 /* NSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 584CD6151F42E0E300AA5909 /* NSArray.m */; };
 		58716EDD1F418CF900B96F73 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 58716EDB1F418CF900B96F73 /* next.png */; };
 		58716EDE1F418CF900B96F73 /* prev.png in Resources */ = {isa = PBXBuildFile; fileRef = 58716EDC1F418CF900B96F73 /* prev.png */; };
+		588D37CE1F4BCECB00B1245A /* CraftARAugmentedRealitySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588D37CB1F4BCECB00B1245A /* CraftARAugmentedRealitySDK.framework */; };
+		588D37CF1F4BCECB00B1245A /* CraftARResourcesAR.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 588D37CC1F4BCECB00B1245A /* CraftARResourcesAR.bundle */; };
+		588D37D01F4BCECB00B1245A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588D37CD1F4BCECB00B1245A /* Pods.framework */; };
+		588D37D31F4BD07A00B1245A /* ARPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 588D37D21F4BD07A00B1245A /* ARPlugin.m */; };
+		588D37E31F4C000100B1245A /* WaitingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588D37E21F4C000100B1245A /* WaitingViewController.m */; };
 		58A4B57A1F3E2215002D6669 /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A4B5791F3E2215002D6669 /* Scene.m */; };
 		58A4B57F1F3E23DA002D6669 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A4B57E1F3E23DA002D6669 /* Constants.m */; };
 		58A4B5811F3E32D5002D6669 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A4B5801F3E32D5002D6669 /* Launch.storyboard */; };
 		58A4B5831F3E330B002D6669 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58A4B5821F3E330B002D6669 /* Images.xcassets */; };
-		A00319F71BBC330B009FE55E /* CraftARResourcesAR.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A0FB2EC01BBC2BBF00E6A12F /* CraftARResourcesAR.bundle */; };
 		A00319FB1BBD28F8009FE55E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00319FA1BBD28F8009FE55E /* CoreLocation.framework */; };
-		A0031A051BBD4889009FE55E /* CraftARAugmentedRealitySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0031A041BBD4889009FE55E /* CraftARAugmentedRealitySDK.framework */; };
 		A01F3D821845FA5A003D8D62 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A01F3D801845FA5A003D8D62 /* InfoPlist.strings */; };
 		A01F3D841845FA5A003D8D62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A01F3D831845FA5A003D8D62 /* main.m */; };
 		A01F3D881845FA5A003D8D62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A01F3D871845FA5A003D8D62 /* AppDelegate.m */; };
@@ -34,7 +37,6 @@
 		A0D096841855E42F00D231F0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D096831855E42F00D231F0 /* SystemConfiguration.framework */; };
 		A0D096881855E45000D231F0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D096871855E45000D231F0 /* AVFoundation.framework */; };
 		A0D0968A1855E46C00D231F0 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D096891855E46C00D231F0 /* CoreMedia.framework */; };
-		C0B1D8461A37595100C1904D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B1D8441A37595100C1904D /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,14 +72,20 @@
 		584CD6151F42E0E300AA5909 /* NSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArray.m; sourceTree = "<group>"; };
 		58716EDB1F418CF900B96F73 /* next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next.png; sourceTree = "<group>"; };
 		58716EDC1F418CF900B96F73 /* prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev.png; sourceTree = "<group>"; };
+		588D37CB1F4BCECB00B1245A /* CraftARAugmentedRealitySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CraftARAugmentedRealitySDK.framework; path = ios/CatchroomSDK/CraftARAugmentedRealitySDK.framework; sourceTree = "<group>"; };
+		588D37CC1F4BCECB00B1245A /* CraftARResourcesAR.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CraftARResourcesAR.bundle; path = ios/CatchroomSDK/CraftARResourcesAR.bundle; sourceTree = "<group>"; };
+		588D37CD1F4BCECB00B1245A /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = ios/CatchroomSDK/Pods.framework; sourceTree = "<group>"; };
+		588D37D11F4BD07A00B1245A /* ARPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPlugin.h; sourceTree = "<group>"; };
+		588D37D21F4BD07A00B1245A /* ARPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPlugin.m; sourceTree = "<group>"; };
+		588D37E11F4C000100B1245A /* WaitingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitingViewController.h; sourceTree = "<group>"; };
+		588D37E21F4C000100B1245A /* WaitingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitingViewController.m; sourceTree = "<group>"; };
 		58A4B5781F3E2215002D6669 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		58A4B5791F3E2215002D6669 /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
 		58A4B57D1F3E23DA002D6669 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		58A4B57E1F3E23DA002D6669 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		58A4B5801F3E32D5002D6669 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
-		58A4B5821F3E330B002D6669 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "ios/Images.xcassets"; sourceTree = SOURCE_ROOT; };
+		58A4B5821F3E330B002D6669 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ios/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		A00319FA1BBD28F8009FE55E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		A0031A041BBD4889009FE55E /* CraftARAugmentedRealitySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CraftARAugmentedRealitySDK.framework; path = ios/CatchroomSDK/CraftARAugmentedRealitySDK.framework; sourceTree = "<group>"; };
 		A01F3D741845FA5A003D8D62 /* ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A01F3D7F1845FA5A003D8D62 /* ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ios-Info.plist"; sourceTree = "<group>"; };
 		A01F3D811845FA5A003D8D62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -92,8 +100,6 @@
 		A0D096851855E43D00D231F0 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		A0D096871855E45000D231F0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A0D096891855E46C00D231F0 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		A0FB2EC01BBC2BBF00E6A12F /* CraftARResourcesAR.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CraftARResourcesAR.bundle; path = ios/CatchroomSDK/CraftARResourcesAR.bundle; sourceTree = "<group>"; };
-		C0B1D8441A37595100C1904D /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = ios/CatchroomSDK/Pods.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +109,13 @@
 			files = (
 				584CD6131F42D77100AA5909 /* Photos.framework in Frameworks */,
 				A00319FB1BBD28F8009FE55E /* CoreLocation.framework in Frameworks */,
-				C0B1D8461A37595100C1904D /* Pods.framework in Frameworks */,
 				A053E8DC1A24817F00A30C49 /* QuartzCore.framework in Frameworks */,
 				A03F93471990D270003ED8B1 /* libc++.dylib in Frameworks */,
 				A0D0968A1855E46C00D231F0 /* CoreMedia.framework in Frameworks */,
 				A0D096881855E45000D231F0 /* AVFoundation.framework in Frameworks */,
+				588D37D01F4BCECB00B1245A /* Pods.framework in Frameworks */,
 				A0D096841855E42F00D231F0 /* SystemConfiguration.framework in Frameworks */,
-				A0031A051BBD4889009FE55E /* CraftARAugmentedRealitySDK.framework in Frameworks */,
+				588D37CE1F4BCECB00B1245A /* CraftARAugmentedRealitySDK.framework in Frameworks */,
 				A0D096821855E42100D231F0 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +168,8 @@
 				5805A4FD1F3C386A00E656C5 /* AugmentedViewController.m */,
 				5805A4FF1F3C38B300E656C5 /* MainViewController.h */,
 				5805A5001F3C38B300E656C5 /* MainViewController.m */,
+				588D37E11F4C000100B1245A /* WaitingViewController.h */,
+				588D37E21F4C000100B1245A /* WaitingViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -206,9 +214,9 @@
 		A01F3D6B1845FA5A003D8D62 = {
 			isa = PBXGroup;
 			children = (
-				A0031A041BBD4889009FE55E /* CraftARAugmentedRealitySDK.framework */,
-				A0FB2EC01BBC2BBF00E6A12F /* CraftARResourcesAR.bundle */,
-				C0B1D8441A37595100C1904D /* Pods.framework */,
+				588D37CB1F4BCECB00B1245A /* CraftARAugmentedRealitySDK.framework */,
+				588D37CC1F4BCECB00B1245A /* CraftARResourcesAR.bundle */,
+				588D37CD1F4BCECB00B1245A /* Pods.framework */,
 				A01F3D7D1845FA5A003D8D62 /* ios */,
 				A01F3D761845FA5A003D8D62 /* Frameworks */,
 				A01F3D751845FA5A003D8D62 /* Products */,
@@ -258,6 +266,8 @@
 				A01F3D801845FA5A003D8D62 /* InfoPlist.strings */,
 				A01F3D831845FA5A003D8D62 /* main.m */,
 				A01F3D851845FA5A003D8D62 /* ios-Prefix.pch */,
+				588D37D11F4BD07A00B1245A /* ARPlugin.h */,
+				588D37D21F4BD07A00B1245A /* ARPlugin.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -323,10 +333,10 @@
 				A01F3D821845FA5A003D8D62 /* InfoPlist.strings in Resources */,
 				58A4B5811F3E32D5002D6669 /* Launch.storyboard in Resources */,
 				58716EDD1F418CF900B96F73 /* next.png in Resources */,
+				588D37CF1F4BCECB00B1245A /* CraftARResourcesAR.bundle in Resources */,
 				58716EDE1F418CF900B96F73 /* prev.png in Resources */,
 				5805A5031F3C3A3800E656C5 /* Main.storyboard in Resources */,
 				58A4B5831F3E330B002D6669 /* Images.xcassets in Resources */,
-				A00319F71BBC330B009FE55E /* CraftARResourcesAR.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,8 +354,10 @@
 				A01F3D881845FA5A003D8D62 /* AppDelegate.m in Sources */,
 				5805A4FE1F3C386A00E656C5 /* AugmentedViewController.m in Sources */,
 				584CD6111F425A2300AA5909 /* ViewUtils.m in Sources */,
+				588D37D31F4BD07A00B1245A /* ARPlugin.m in Sources */,
 				58A4B57F1F3E23DA002D6669 /* Constants.m in Sources */,
 				584CD6161F42E0E300AA5909 /* NSArray.m in Sources */,
+				588D37E31F4C000100B1245A /* WaitingViewController.m in Sources */,
 				A01F3D841845FA5A003D8D62 /* main.m in Sources */,
 				583D8EB41F3FFA4200BB60AF /* BaseApiController.m in Sources */,
 			);
@@ -448,9 +460,14 @@
 				COMPRESS_PNG_FILES = NO;
 				DEVELOPMENT_TEAM = FAX8UHQ9F4;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_SOURCE_FILE_NAMES = (
+					"ARPlugin.h,",
+					ARPlugin.m,
+				);
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"${PROJECT_DIR}/..",
+					"$(PROJECT_DIR)/ios/CatchroomSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios/ios-Prefix.pch";
@@ -480,9 +497,14 @@
 				COMPRESS_PNG_FILES = NO;
 				DEVELOPMENT_TEAM = FAX8UHQ9F4;
 				ENABLE_BITCODE = NO;
+				EXCLUDED_SOURCE_FILE_NAMES = (
+					"ARPlugin.h,",
+					ARPlugin.m,
+				);
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"${PROJECT_DIR}/..",
+					"$(PROJECT_DIR)/ios/CatchroomSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios/ios-Prefix.pch";

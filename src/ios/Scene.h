@@ -20,9 +20,9 @@
 @interface Scene : NSObject
 
 @property TypeContent type;
-@property int index;
+@property unsigned long index;
 @property CraftARTrackingContent* content;
 
-+(Scene*) makeSceneAt: (int) index ofType: (TypeContent) type;
++(Scene*) makeSceneAt: (unsigned long) index ofType: (TypeContent) type;
 
 @end

@@ -15,7 +15,7 @@
 
 - (void) getConfigOnSuccess:(void(^)(Config*)) handler;
 - (void) getResourcesAndStore:(void(^)(NSString* message, float percent)) handler callback: (void(^)()) onFinished;
-- (Scene*) getSceneAt: (int) index ofType: (TypeContent) type;
+- (Scene*) getSceneAt: (unsigned long) index ofType: (TypeContent) type;
 -(void) clearScenesOfType: (TypeContent) type;
 
 +(ApplicationController*) Instance;
