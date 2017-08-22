@@ -8,6 +8,7 @@
 
 #import "ApplicationController.h"
 #import "BaseApiController.h"
+#import "AppDelegate.h"
 #import "Domains.h"
 #import "NSArray.h"
 
@@ -52,7 +53,7 @@
             break;
     }
     
-    id resource = [resources objectForKey: [NSString stringWithFormat:@"%d",index]];
+    id resource = [resources objectForKey: [NSString stringWithFormat:@"%d", index]];
     
     if (resource)
     {
@@ -62,7 +63,7 @@
     if (scene == nil)
     {
         scene = [Scene makeSceneAt:index ofType:type];
-        [resources setValue:scene forKey: [NSString stringWithFormat:@"%d",index]];
+        [resources setValue:scene forKey: [NSString stringWithFormat:@"%d", index]];
     }
     
     return scene;
@@ -84,13 +85,13 @@
 
 + (ApplicationController*) Instance
 {
-    static ApplicationController* _instance = nil;
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    if (_instance == nil)
+    if ([appDelegate controller] == nil)
     {
-        _instance = [[ApplicationController alloc] init];
+        [appDelegate setController: [[ApplicationController alloc] init]];
     }
-    return _instance;
+    return [appDelegate controller];
 }
 
 - (void) getConfigOnSuccess:(void(^)(Config*)) handler

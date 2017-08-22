@@ -18,7 +18,6 @@ extern NSString *const AUGMENTED_SEGUE;
 extern NSString *const ACTION_MENU;
 extern NSString *const ACTION_VIDEO;
 
-extern NSString *const TEXT_SCANNING;
 extern NSString *const TEXT_TITLE_MENU;
 extern NSString *const TEXT_TITLE_WELCOME;
 extern NSString *const TEXT_HELP_MENU_STEP_1;

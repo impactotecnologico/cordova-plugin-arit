@@ -107,14 +107,7 @@
 }
 
 #pragma mark -
-#pragma mark Init by Storyboard.
-+(AugmentedViewController*) Instance
-{
-    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"View" bundle:nil];
-    AugmentedViewController* augmentedViewController = (AugmentedViewController*) [storyboard instantiateViewControllerWithIdentifier:@"AugmentedView"];
-    return augmentedViewController;
-}
-#pragma mark -
+
 #pragma mark Content Management
 
 -(void) augmentedContent
