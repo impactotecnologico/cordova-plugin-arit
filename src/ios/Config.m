@@ -36,7 +36,7 @@
     BOOL isDir;
     if (![[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir])
         if (![[NSFileManager defaultManager] createDirectoryAtPath:path
-                                   withIntermediateDirectories:NO
+                                   withIntermediateDirectories:YES
                                                     attributes:nil
                                                          error:&error])
         {
@@ -54,6 +54,19 @@
         
         [config setTitulo:[data objectForKey:@"titulo"]];
         
+        /*
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MMMM dd yyyy HH:mm:ss ZZZZ"];
+        
+        NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMTZZ"];
+        [dateFormatter setTimeZone:gmt];
+        
+        NSString* dates = [dateFormatter stringFromDate:[[NSDate alloc] init]];
+        
+        NSDate* date = [dateFormatter dateFromString:dates];
+        NSLog(date);
+        [config setFecha:[dateFormatter dateFromString:[data objectForKey:@"fecha"]]];
+        */
         [config setFechaTexto: [data objectForKey:@"fecha_texto"]];
         [config setColor: [data objectForKey:@"color"]];
         [config setColorRosa: [data objectForKey:@"colorRosa"]];

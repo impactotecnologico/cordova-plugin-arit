@@ -7,7 +7,7 @@
 //
 
 #import "BaseApiController.h"
-//#import <Pods/AFNetworking.h>
+#import <Pods/AFNetworking.h>
 
 @interface BaseApiController()
 
@@ -60,7 +60,7 @@
     
     return request;
 }
-/*
+
 -(AFHTTPSessionManager*) makeSessionWithBase: (NSString* _Nullable) host
                                  thisService: (NSString* _Nonnull) action
 {
@@ -105,7 +105,7 @@
     
     [dataTask resume];
 }
-*/
+
 -(void) getDataWithBase: (NSString* _Nullable) host
              thisService: (NSString* _Nonnull) action
                onSuccess: (void(^_Nonnull)(NSData * _Nullable data)) successHandler

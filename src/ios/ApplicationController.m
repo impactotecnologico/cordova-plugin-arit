@@ -8,6 +8,7 @@
 
 #import "ApplicationController.h"
 #import "BaseApiController.h"
+#import "AppDelegate.h"
 #import "Domains.h"
 #import "NSArray.h"
 
@@ -37,7 +38,7 @@
 }
 
 
-- (Scene*) getSceneAt: (int) index ofType: (TypeContent) type
+- (Scene*) getSceneAt: (unsigned long) index ofType: (TypeContent) type
 {
     Scene* scene = nil;
     NSMutableDictionary* resources;
@@ -52,7 +53,7 @@
             break;
     }
     
-    id resource = [resources objectForKey: [NSString stringWithFormat:@"%d",index]];
+    id resource = [resources objectForKey: [NSString stringWithFormat:@"%lu", index]];
     
     if (resource)
     {
@@ -62,10 +63,24 @@
     if (scene == nil)
     {
         scene = [Scene makeSceneAt:index ofType:type];
-        [resources setValue:scene forKey: [NSString stringWithFormat:@"%d",index]];
+        [resources setValue:scene forKey: [NSString stringWithFormat:@"%lu", index]];
     }
     
     return scene;
+}
+
+-(void) clearScenesOfType: (TypeContent) type
+{
+    switch (type) {
+        case TypeContentImage:
+            [[self scenesImage] removeAllObjects];
+            break;
+        case TypeContentVideo:
+            [[self scenesVideo] removeAllObjects];
+            break;
+        default:
+            break;
+    }
 }
 
 + (ApplicationController*) Instance
@@ -108,7 +123,7 @@
         float total = 0;
         
         NSArray* infos = [[[self config] imagesAR] mapObjectsUsingBlock:^id(id obj, NSUInteger idx) {
-            return [NSString stringWithFormat:@"info%d.png", idx+1];
+            return [NSString stringWithFormat:@"info%u.png", idx+1];
         }];
         
         NSArray* collectionResources = @[

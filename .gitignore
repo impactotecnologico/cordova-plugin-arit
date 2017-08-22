@@ -1,5 +1,4 @@
-
 .DS_Store
-src/ios/CraftARAugmentedRealitySDK.framework/*
-src/ios/Pods.framework/*
-src/ios/CraftARResourcesAR.bundle/*
+src/ios/CatchroomSDK/CraftARAugmentedRealitySDK.framework/*
+src/ios/CatchroomSDK/Pods.framework/*
+src/ios/CatchroomSDK/CraftARResourcesAR.bundle/*

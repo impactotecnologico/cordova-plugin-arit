@@ -1,14 +1,14 @@
 //
 //  AugmentedViewController.h
-//  objectivec
+//  itarbasesac-boda
 //
-//  Created by Roysbert Salinas on 16/8/17.
-//  Copyright © 2017 Roysbert Salinas. All rights reserved.
+//  Created by Roysbert Salinas on 10/8/17.
+//  Copyright © 2017 Luis Martinell Andreu. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface AugmentedViewController : ViewController
+@interface AugmentedViewController : UIViewController
 
 @property NSString *action;
 

@@ -18,7 +18,6 @@ NSString *const AUGMENTED_SEGUE = @"AugmentedSegue";
 NSString *const ACTION_MENU = @"Menu";
 NSString *const ACTION_VIDEO = @"Video";
 
-NSString *const TEXT_SCANNING = @"Escaneando...";
 NSString *const TEXT_TITLE_MENU = @"Escanea tu minuta.";
 NSString *const TEXT_TITLE_WELCOME = @"Escanea nuestra foto.";
 NSString *const TEXT_HELP_MENU_STEP_1 = @"Escanea tu minuta para ver el detalle de los platos.";

@@ -27,6 +27,7 @@
         <header-file src="src/ios/Config.h" />
         <header-file src="src/ios/ViewUtils.h" />
         <header-file src="src/ios/Constants.h" />
+        <source-file src="src/ios/WaitingViewController.h" />
 
         <source-file src="src/ios/ARPlugin.m" />
         <source-file src="src/ios/ApplicationController.m" />
@@ -37,15 +38,16 @@
         <source-file src="src/ios/Config.m" />
         <source-file src="src/ios/ViewUtils.m" />
         <source-file src="src/ios/Constants.m" />
+        <source-file src="src/ios/WaitingViewController.m" />
 
         <resource-file src="src/ios/next.png" />
         <resource-file src="src/ios/prev.png" />
-        <resource-file src="src/ios/View.storyboard" />
-        <resource-file src="src/ios/CraftARResourcesAR.bundle" />
+        <resource-file src="src/ios/Main.storyboard" />
+        <resource-file src="src/ios/CatchroomSDK/CraftARResourcesAR.bundle" />
 
         <!-- Frameworks not added on production plugin --> 
-        <framework src="src/ios/Pods.framework" custom="true"  /> 
-        <framework src="src/ios/CraftARAugmentedRealitySDK.framework" custom="true"  /> 
+        <framework src="src/ios/CatchroomSDK/Pods.framework" custom="true"  /> 
+        <framework src="src/ios/CatchroomSDK/CraftARAugmentedRealitySDK.framework" custom="true"  /> 
         
         <framework src="AudioToolbox.framework" />
         <framework src="CoreMedia.framework" />

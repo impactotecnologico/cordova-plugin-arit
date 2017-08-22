@@ -15,7 +15,7 @@
 
 @implementation Scene
 
-+(Scene*) makeSceneAt: (int) index ofType: (TypeContent) type
++(Scene*) makeSceneAt: (unsigned long) index ofType: (TypeContent) type
 {
     Scene* scene = [[Scene alloc] init];
     

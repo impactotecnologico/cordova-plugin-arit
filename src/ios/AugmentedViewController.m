@@ -18,7 +18,7 @@
 @property CraftARTracking *tracking;
 @property CraftARItemAR *currentItem;
 
-@property int currentIndex;
+@property unsigned long currentIndex;
 @property unsigned long countResources;
 @property TypeContent currentTypeContent;
 
@@ -29,6 +29,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *viewVideoPreview;
 @property (weak, nonatomic) IBOutlet UIView *viewScanOverlay;
+@property (weak, nonatomic) IBOutlet UIView *viewBack;
 
 @property (weak, nonatomic) IBOutlet UIView *viewInfoDialog;
 @property (weak, nonatomic) IBOutlet UILabel *labelInfoMessage;
@@ -47,6 +48,15 @@
 @synthesize tracking;
 @synthesize currentItem;
 
+#pragma mark Init by Storyboard.
++(AugmentedViewController*) Instance
+{
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AugmentedViewController* augmentedViewController = (AugmentedViewController*) [storyboard instantiateViewControllerWithIdentifier:@"AugmentedView"];
+    return augmentedViewController;
+}
+#pragma mark -
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -58,6 +68,8 @@
      {
          [self setConfig:config];
      }];
+    
+    [[ApplicationController Instance] setContinueProccess:YES];
     
     [[self viewInfoBackground] setBackgroundColor:[UIColor whiteColor]];
     if ([[self action] isEqualToString: ACTION_VIDEO])
@@ -99,18 +111,27 @@
 {
     [[self sdk]  stopCapture];
     [[self tracking]  removeAllARItems];
+    [[ApplicationController Instance] setContinueProccess:NO];
+    [[ApplicationController Instance] clearScenesOfType: [self currentTypeContent]];
     [super viewWillDisappear:animated];
 }
 
-#pragma mark -
-#pragma mark Init by Storyboard.
-+(AugmentedViewController*) Instance
+- (IBAction)onTapBack:(UIButton *)sender
 {
-    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"View" bundle:nil];
-    AugmentedViewController* augmentedViewController = (AugmentedViewController*) [storyboard instantiateViewControllerWithIdentifier:@"AugmentedView"];
-    return augmentedViewController;
+    if( [self navigationController])
+    {
+        [[self navigationController] popViewControllerAnimated:YES];
+    }
+    else
+    {
+        [self dismissViewControllerAnimated:YES completion:^{
+            NSLog(@"Backing...");
+        }];
+    }
 }
+
 #pragma mark -
+
 #pragma mark Content Management
 
 -(void) augmentedContent
@@ -137,26 +158,49 @@
         case TypeContentImage:
         {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(),
-                           ^{
-                               [[self labelInfoMessage] setText: TEXT_HELP_MENU_STEP_2];
-                               [[ApplicationController Instance] getConfigOnSuccess:^(Config * config) {
-                                   [[self viewInfoBackground] setBackgroundColor: [ViewUtils colorFromHexString: [config colorRosa]]];
-                               }];
-                           });
+            ^{
+                if ([[ApplicationController Instance] continueProccess])
+                {
+                   [[self labelInfoMessage] setText: TEXT_HELP_MENU_STEP_2];
+                   [[ApplicationController Instance] getConfigOnSuccess:^(Config * config) {
+                       [[self viewInfoBackground] setBackgroundColor: [ViewUtils colorFromHexString: [config colorRosa]]];
+                   }];
+                }
+            });
             break;
         }
             
         default:
             break;
     }
+}
+
+-(void) showScanning
+{
+    dispatch_async(dispatch_get_main_queue(),
+   ^{
+        NSLog(@"showScanning");
+        self.viewScanOverlay.hidden = false;
+        self.viewBack.hidden = true;
+    });
+
+}
+
+-(void) showBackButton
+{
+    dispatch_async(dispatch_get_main_queue(),
+    ^{
+        NSLog(@"showBackButton");
+        self.viewScanOverlay.hidden = true;
+        self.viewBack.hidden = false;
+    });
     
-    self.viewScanOverlay.hidden = true;
 }
 
 -(void) updateCurrentScene
 {
     // Si cambia el contenido se borra el cart...
-    [self setCart: nil];
+    [self removeCart];
     
     if ([self currentScene])
     {
@@ -189,22 +233,32 @@
     return content;
 }
 
+-(void) removeCart
+{
+    if ([self cart])
+    {
+        [[self currentItem] removeContent: [self cart]];
+        [self setIsVisibleCard: NO];
+        [self setCart: nil];
+    }
+}
+
 -(void) toggleCard
 {
     if ([self isVisibleCard])
     {
-        [[self currentItem] removeContent: [self cart]];
-        [self setIsVisibleCard: NO];
+        [self removeCart];
     }
     else
     {
         if ([self cart] == nil)
         {
-            NSString *pathResource = [[self config] pathARResource: [NSString stringWithFormat:@"info%d.png", [self currentIndex]]];
+            NSString *pathResource = [[self config] pathARResource: [NSString stringWithFormat:@"info%lu.png", [self currentIndex]+1]];
             CraftARTrackingContent* content = [[CraftARTrackingContentImage alloc] initWithImageFromURL: [NSURL fileURLWithPath:pathResource]];
             [content setWrapMode: CRAFTAR_TRACKING_WRAP_ASPECT_FIT];
             [content setTranslation: CATransform3DMakeTranslation(0.0, 0.0, 142.63)];
             [content setScale: CATransform3DMakeScale(1.6, 1.6, 1.6)];
+            [self setCart:content];
         }
         
         [[self currentItem] addContent:[self cart]];
@@ -216,6 +270,7 @@
 
 - (void) didStartCapture {
     
+    [self showScanning];
     [[self sdk] setSearchControllerDelegate:[[self cloudRecognition] mSearchController]];
     
     __block AugmentedViewController* mySelf = self;
@@ -225,11 +280,12 @@
         [[self cloudRecognition] setCollectionWithToken: [config arCollection] onSuccess:^{
             
             NSLog(@"Ready to search!");
-            mySelf.viewScanOverlay.hidden = false;
             [[CraftARSDK sharedCraftARSDK] startFinder];
             
         } andOnError:^(NSError *error) {
             NSLog(@"Error setting token: %@", error.localizedDescription);
+            
+            [mySelf showBackButton];
         }];
     }];
 }
@@ -241,6 +297,8 @@
     if ([results count] > 0) {
         [[self sdk] stopFinder];
         
+        [self showBackButton];
+        
         CraftARSearchResult *result = [results objectAtIndex:0];
         CraftARItem* item = result.item;
         
@@ -251,7 +309,6 @@
             if ([[item name] isEqualToString: AR_COLLECTION_TYPE_MEMORANDUM] || [[item name] isEqualToString: AR_COLLECTION_TYPE_WELCOME])
             {
                 [self augmentedContent];
-                //[self testContent];
             }
             
             
@@ -259,6 +316,10 @@
             NSError *err = [[self tracking] addARItem: [self currentItem]];
             if (err) {
                 NSLog(@"Error adding AR item: %@", err.localizedDescription);
+            }
+            else
+            {
+                [[self tracking] startTracking];
             }
         }
     }
@@ -296,7 +357,7 @@
         case CRAFTAR_CONTENT_TOUCH_DOWN:
             NSLog(@"Touch down: %@", content.uuid);
             
-            if ([[[self prevButton] uuid] isEqualToString: content.uuid]) // touch prev button
+            if ([content isEqual:[self prevButton]])//([[[self prevButton] uuid] isEqualToString: content.uuid]) // touch prev button
             {
                 if ([self currentIndex] > 0)
                 {
@@ -309,9 +370,9 @@
                 
                 [self updateCurrentScene];
             }
-            else if ([[[self nextButton] uuid] isEqualToString: content.uuid]) // touch next button
+            else if ([content isEqual:[self nextButton]])//([[[self nextButton] uuid] isEqualToString: content.uuid]) // touch next button
             {
-                int lastResource = [self countResources] - 1;
+                unsigned long lastResource = [self countResources] - 1;
                 if ([self currentIndex] >= lastResource)
                 {
                     [self setCurrentIndex: 0];
@@ -341,6 +402,7 @@
             break;
     }
 }
+
 
 #pragma mark -
 - (void)didReceiveMemoryWarning

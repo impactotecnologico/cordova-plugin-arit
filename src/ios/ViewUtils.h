@@ -6,7 +6,7 @@
 //  Copyright © 2017 Luis Martinell Andreu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 @interface ViewUtils : NSObject
 
