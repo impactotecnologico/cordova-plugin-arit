@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5805A4FB1F3C383000E656C5 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 5805A4FA1F3C383000E656C5 /* Config.m */; };
-		5805A4FE1F3C386A00E656C5 /* AugmentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5805A4FD1F3C386A00E656C5 /* AugmentedViewController.m */; };
-		5805A5011F3C38B300E656C5 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5805A5001F3C38B300E656C5 /* MainViewController.m */; };
-		5805A5031F3C3A3800E656C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5805A5021F3C3A3800E656C5 /* Main.storyboard */; };
-		583D8EB41F3FFA4200BB60AF /* BaseApiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 583D8EB31F3FFA4200BB60AF /* BaseApiController.m */; };
-		583D8EB71F3FFA5400BB60AF /* ApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 583D8EB61F3FFA5400BB60AF /* ApplicationController.m */; };
-		584CD6111F425A2300AA5909 /* ViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 584CD6101F425A2300AA5909 /* ViewUtils.m */; };
+		5805A4FB1F3C383000E656C5 /* ARConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5805A4FA1F3C383000E656C5 /* ARConfig.m */; };
+		5805A4FE1F3C386A00E656C5 /* ARAugmentedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5805A4FD1F3C386A00E656C5 /* ARAugmentedViewController.m */; };
+		5805A5011F3C38B300E656C5 /* ARMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5805A5001F3C38B300E656C5 /* ARMainViewController.m */; };
+		5805A5031F3C3A3800E656C5 /* ARMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5805A5021F3C3A3800E656C5 /* ARMain.storyboard */; };
+		583D8EB41F3FFA4200BB60AF /* ARBaseApiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 583D8EB31F3FFA4200BB60AF /* ARBaseApiController.m */; };
+		583D8EB71F3FFA5400BB60AF /* ARApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 583D8EB61F3FFA5400BB60AF /* ARApplicationController.m */; };
+		584CD6111F425A2300AA5909 /* ARViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 584CD6101F425A2300AA5909 /* ARViewUtils.m */; };
 		584CD6131F42D77100AA5909 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 584CD6121F42D77100AA5909 /* Photos.framework */; };
 		584CD6161F42E0E300AA5909 /* NSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 584CD6151F42E0E300AA5909 /* NSArray.m */; };
 		58716EDD1F418CF900B96F73 /* next.png in Resources */ = {isa = PBXBuildFile; fileRef = 58716EDB1F418CF900B96F73 /* next.png */; };
 		58716EDE1F418CF900B96F73 /* prev.png in Resources */ = {isa = PBXBuildFile; fileRef = 58716EDC1F418CF900B96F73 /* prev.png */; };
 		588D37D31F4BD07A00B1245A /* ARPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 588D37D21F4BD07A00B1245A /* ARPlugin.m */; };
-		588D37E31F4C000100B1245A /* WaitingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588D37E21F4C000100B1245A /* WaitingViewController.m */; };
-		58A4B57A1F3E2215002D6669 /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A4B5791F3E2215002D6669 /* Scene.m */; };
-		58A4B57F1F3E23DA002D6669 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A4B57E1F3E23DA002D6669 /* Constants.m */; };
-		58A4B5811F3E32D5002D6669 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A4B5801F3E32D5002D6669 /* Launch.storyboard */; };
+		588D37E31F4C000100B1245A /* ARWaitingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 588D37E21F4C000100B1245A /* ARWaitingViewController.m */; };
+		58A4B57A1F3E2215002D6669 /* ARScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A4B5791F3E2215002D6669 /* ARScene.m */; };
+		58A4B57F1F3E23DA002D6669 /* ARConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 58A4B57E1F3E23DA002D6669 /* ARConstants.m */; };
+		58A4B5811F3E32D5002D6669 /* ARLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A4B5801F3E32D5002D6669 /* ARLaunch.storyboard */; };
 		58A4B5831F3E330B002D6669 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58A4B5821F3E330B002D6669 /* Images.xcassets */; };
 		58BD41231F4CB54E00C5A08B /* CraftARAugmentedRealitySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BD41201F4CB54E00C5A08B /* CraftARAugmentedRealitySDK.framework */; };
 		58BD41241F4CB54E00C5A08B /* CraftARResourcesAR.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 58BD41211F4CB54E00C5A08B /* CraftARResourcesAR.bundle */; };
@@ -30,7 +30,7 @@
 		A00319FB1BBD28F8009FE55E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A00319FA1BBD28F8009FE55E /* CoreLocation.framework */; };
 		A01F3D821845FA5A003D8D62 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A01F3D801845FA5A003D8D62 /* InfoPlist.strings */; };
 		A01F3D841845FA5A003D8D62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A01F3D831845FA5A003D8D62 /* main.m */; };
-		A01F3D881845FA5A003D8D62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A01F3D871845FA5A003D8D62 /* AppDelegate.m */; };
+		A01F3D881845FA5A003D8D62 /* ARAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A01F3D871845FA5A003D8D62 /* ARAppDelegate.m */; };
 		A03F93471990D270003ED8B1 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A03F93461990D270003ED8B1 /* libc++.dylib */; };
 		A053E8DC1A24817F00A30C49 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A053E8DB1A24817F00A30C49 /* QuartzCore.framework */; };
 		A0D096821855E42100D231F0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D096811855E42100D231F0 /* MobileCoreServices.framework */; };
@@ -53,20 +53,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5805A4F91F3C383000E656C5 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
-		5805A4FA1F3C383000E656C5 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
-		5805A4FC1F3C386A00E656C5 /* AugmentedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AugmentedViewController.h; sourceTree = "<group>"; };
-		5805A4FD1F3C386A00E656C5 /* AugmentedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AugmentedViewController.m; sourceTree = "<group>"; };
-		5805A4FF1F3C38B300E656C5 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		5805A5001F3C38B300E656C5 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		5805A5021F3C3A3800E656C5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		583D8EB21F3FFA4200BB60AF /* BaseApiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseApiController.h; sourceTree = "<group>"; };
-		583D8EB31F3FFA4200BB60AF /* BaseApiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseApiController.m; sourceTree = "<group>"; };
-		583D8EB51F3FFA5400BB60AF /* ApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationController.h; sourceTree = "<group>"; };
-		583D8EB61F3FFA5400BB60AF /* ApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationController.m; sourceTree = "<group>"; };
-		583D8EB81F4174A400BB60AF /* Domains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Domains.h; sourceTree = "<group>"; };
-		584CD60F1F425A2300AA5909 /* ViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewUtils.h; sourceTree = "<group>"; };
-		584CD6101F425A2300AA5909 /* ViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewUtils.m; sourceTree = "<group>"; };
+		5805A4F91F3C383000E656C5 /* ARConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARConfig.h; sourceTree = "<group>"; };
+		5805A4FA1F3C383000E656C5 /* ARConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARConfig.m; sourceTree = "<group>"; };
+		5805A4FC1F3C386A00E656C5 /* ARAugmentedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARAugmentedViewController.h; sourceTree = "<group>"; };
+		5805A4FD1F3C386A00E656C5 /* ARAugmentedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARAugmentedViewController.m; sourceTree = "<group>"; };
+		5805A4FF1F3C38B300E656C5 /* ARMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMainViewController.h; sourceTree = "<group>"; };
+		5805A5001F3C38B300E656C5 /* ARMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMainViewController.m; sourceTree = "<group>"; };
+		5805A5021F3C3A3800E656C5 /* ARMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ARMain.storyboard; sourceTree = "<group>"; };
+		583D8EB21F3FFA4200BB60AF /* ARBaseApiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARBaseApiController.h; sourceTree = "<group>"; };
+		583D8EB31F3FFA4200BB60AF /* ARBaseApiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARBaseApiController.m; sourceTree = "<group>"; };
+		583D8EB51F3FFA5400BB60AF /* ARApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARApplicationController.h; sourceTree = "<group>"; };
+		583D8EB61F3FFA5400BB60AF /* ARApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARApplicationController.m; sourceTree = "<group>"; };
+		583D8EB81F4174A400BB60AF /* ARDomains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARDomains.h; sourceTree = "<group>"; };
+		584CD60F1F425A2300AA5909 /* ARViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARViewUtils.h; sourceTree = "<group>"; };
+		584CD6101F425A2300AA5909 /* ARViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARViewUtils.m; sourceTree = "<group>"; };
 		584CD6121F42D77100AA5909 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		584CD6141F42E0E300AA5909 /* NSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArray.h; sourceTree = "<group>"; };
 		584CD6151F42E0E300AA5909 /* NSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArray.m; sourceTree = "<group>"; };
@@ -74,13 +74,13 @@
 		58716EDC1F418CF900B96F73 /* prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev.png; sourceTree = "<group>"; };
 		588D37D11F4BD07A00B1245A /* ARPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARPlugin.h; sourceTree = "<group>"; };
 		588D37D21F4BD07A00B1245A /* ARPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARPlugin.m; sourceTree = "<group>"; };
-		588D37E11F4C000100B1245A /* WaitingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitingViewController.h; sourceTree = "<group>"; };
-		588D37E21F4C000100B1245A /* WaitingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitingViewController.m; sourceTree = "<group>"; };
-		58A4B5781F3E2215002D6669 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
-		58A4B5791F3E2215002D6669 /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
-		58A4B57D1F3E23DA002D6669 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		58A4B57E1F3E23DA002D6669 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		58A4B5801F3E32D5002D6669 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		588D37E11F4C000100B1245A /* ARWaitingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARWaitingViewController.h; sourceTree = "<group>"; };
+		588D37E21F4C000100B1245A /* ARWaitingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARWaitingViewController.m; sourceTree = "<group>"; };
+		58A4B5781F3E2215002D6669 /* ARScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARScene.h; sourceTree = "<group>"; };
+		58A4B5791F3E2215002D6669 /* ARScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARScene.m; sourceTree = "<group>"; };
+		58A4B57D1F3E23DA002D6669 /* ARConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARConstants.h; sourceTree = "<group>"; };
+		58A4B57E1F3E23DA002D6669 /* ARConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARConstants.m; sourceTree = "<group>"; };
+		58A4B5801F3E32D5002D6669 /* ARLaunch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ARLaunch.storyboard; sourceTree = "<group>"; };
 		58A4B5821F3E330B002D6669 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ios/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		58BD41201F4CB54E00C5A08B /* CraftARAugmentedRealitySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CraftARAugmentedRealitySDK.framework; path = ios/CatchoomSDK/CraftARAugmentedRealitySDK.framework; sourceTree = "<group>"; };
 		58BD41211F4CB54E00C5A08B /* CraftARResourcesAR.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = CraftARResourcesAR.bundle; path = ios/CatchoomSDK/CraftARResourcesAR.bundle; sourceTree = "<group>"; };
@@ -91,8 +91,8 @@
 		A01F3D811845FA5A003D8D62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A01F3D831845FA5A003D8D62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A01F3D851845FA5A003D8D62 /* ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ios-Prefix.pch"; sourceTree = "<group>"; };
-		A01F3D861845FA5A003D8D62 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A01F3D871845FA5A003D8D62 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A01F3D861845FA5A003D8D62 /* ARAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARAppDelegate.h; sourceTree = "<group>"; };
+		A01F3D871845FA5A003D8D62 /* ARAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARAppDelegate.m; sourceTree = "<group>"; };
 		A03F93461990D270003ED8B1 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		A053E8DB1A24817F00A30C49 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A0D096811855E42100D231F0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -127,10 +127,10 @@
 			isa = PBXGroup;
 			children = (
 				A01F3D7E1845FA5A003D8D62 /* Supporting Files */,
-				5805A4F91F3C383000E656C5 /* Config.h */,
-				5805A4FA1F3C383000E656C5 /* Config.m */,
-				58A4B5781F3E2215002D6669 /* Scene.h */,
-				58A4B5791F3E2215002D6669 /* Scene.m */,
+				5805A4F91F3C383000E656C5 /* ARConfig.h */,
+				5805A4FA1F3C383000E656C5 /* ARConfig.m */,
+				58A4B5781F3E2215002D6669 /* ARScene.h */,
+				58A4B5791F3E2215002D6669 /* ARScene.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -142,8 +142,8 @@
 				58716EDA1F418CEB00B96F73 /* Resources */,
 				5805A4F71F3C36CA00E656C5 /* ViewControllers */,
 				58A4B5821F3E330B002D6669 /* Images.xcassets */,
-				5805A5021F3C3A3800E656C5 /* Main.storyboard */,
-				58A4B5801F3E32D5002D6669 /* Launch.storyboard */,
+				5805A5021F3C3A3800E656C5 /* ARMain.storyboard */,
+				58A4B5801F3E32D5002D6669 /* ARLaunch.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -153,10 +153,10 @@
 			children = (
 				584CD6171F43B3AF00AA5909 /* Extensions */,
 				58A4B57C1F3E23C3002D6669 /* Helpers */,
-				583D8EB21F3FFA4200BB60AF /* BaseApiController.h */,
-				583D8EB31F3FFA4200BB60AF /* BaseApiController.m */,
-				583D8EB51F3FFA5400BB60AF /* ApplicationController.h */,
-				583D8EB61F3FFA5400BB60AF /* ApplicationController.m */,
+				583D8EB21F3FFA4200BB60AF /* ARBaseApiController.h */,
+				583D8EB31F3FFA4200BB60AF /* ARBaseApiController.m */,
+				583D8EB51F3FFA5400BB60AF /* ARApplicationController.h */,
+				583D8EB61F3FFA5400BB60AF /* ARApplicationController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -164,12 +164,12 @@
 		5805A4F71F3C36CA00E656C5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5805A4FC1F3C386A00E656C5 /* AugmentedViewController.h */,
-				5805A4FD1F3C386A00E656C5 /* AugmentedViewController.m */,
-				5805A4FF1F3C38B300E656C5 /* MainViewController.h */,
-				5805A5001F3C38B300E656C5 /* MainViewController.m */,
-				588D37E11F4C000100B1245A /* WaitingViewController.h */,
-				588D37E21F4C000100B1245A /* WaitingViewController.m */,
+				5805A4FC1F3C386A00E656C5 /* ARAugmentedViewController.h */,
+				5805A4FD1F3C386A00E656C5 /* ARAugmentedViewController.m */,
+				5805A4FF1F3C38B300E656C5 /* ARMainViewController.h */,
+				5805A5001F3C38B300E656C5 /* ARMainViewController.m */,
+				588D37E11F4C000100B1245A /* ARWaitingViewController.h */,
+				588D37E21F4C000100B1245A /* ARWaitingViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -177,8 +177,8 @@
 		584CD60A1F4257C100AA5909 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				584CD60F1F425A2300AA5909 /* ViewUtils.h */,
-				584CD6101F425A2300AA5909 /* ViewUtils.m */,
+				584CD60F1F425A2300AA5909 /* ARViewUtils.h */,
+				584CD6101F425A2300AA5909 /* ARViewUtils.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -204,9 +204,9 @@
 		58A4B57C1F3E23C3002D6669 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				58A4B57D1F3E23DA002D6669 /* Constants.h */,
-				58A4B57E1F3E23DA002D6669 /* Constants.m */,
-				583D8EB81F4174A400BB60AF /* Domains.h */,
+				58A4B57D1F3E23DA002D6669 /* ARConstants.h */,
+				58A4B57E1F3E23DA002D6669 /* ARConstants.m */,
+				583D8EB81F4174A400BB60AF /* ARDomains.h */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -260,8 +260,8 @@
 		A01F3D7E1845FA5A003D8D62 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A01F3D861845FA5A003D8D62 /* AppDelegate.h */,
-				A01F3D871845FA5A003D8D62 /* AppDelegate.m */,
+				A01F3D861845FA5A003D8D62 /* ARAppDelegate.h */,
+				A01F3D871845FA5A003D8D62 /* ARAppDelegate.m */,
 				A01F3D7F1845FA5A003D8D62 /* ios-Info.plist */,
 				A01F3D801845FA5A003D8D62 /* InfoPlist.strings */,
 				A01F3D831845FA5A003D8D62 /* main.m */,
@@ -331,11 +331,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A01F3D821845FA5A003D8D62 /* InfoPlist.strings in Resources */,
-				58A4B5811F3E32D5002D6669 /* Launch.storyboard in Resources */,
+				58A4B5811F3E32D5002D6669 /* ARLaunch.storyboard in Resources */,
 				58716EDD1F418CF900B96F73 /* next.png in Resources */,
 				58BD41241F4CB54E00C5A08B /* CraftARResourcesAR.bundle in Resources */,
 				58716EDE1F418CF900B96F73 /* prev.png in Resources */,
-				5805A5031F3C3A3800E656C5 /* Main.storyboard in Resources */,
+				5805A5031F3C3A3800E656C5 /* ARMain.storyboard in Resources */,
 				58A4B5831F3E330B002D6669 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,19 +347,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58A4B57A1F3E2215002D6669 /* Scene.m in Sources */,
-				5805A4FB1F3C383000E656C5 /* Config.m in Sources */,
-				5805A5011F3C38B300E656C5 /* MainViewController.m in Sources */,
-				583D8EB71F3FFA5400BB60AF /* ApplicationController.m in Sources */,
-				A01F3D881845FA5A003D8D62 /* AppDelegate.m in Sources */,
-				5805A4FE1F3C386A00E656C5 /* AugmentedViewController.m in Sources */,
-				584CD6111F425A2300AA5909 /* ViewUtils.m in Sources */,
+				58A4B57A1F3E2215002D6669 /* ARScene.m in Sources */,
+				5805A4FB1F3C383000E656C5 /* ARConfig.m in Sources */,
+				5805A5011F3C38B300E656C5 /* ARMainViewController.m in Sources */,
+				583D8EB71F3FFA5400BB60AF /* ARApplicationController.m in Sources */,
+				A01F3D881845FA5A003D8D62 /* ARAppDelegate.m in Sources */,
+				5805A4FE1F3C386A00E656C5 /* ARAugmentedViewController.m in Sources */,
+				584CD6111F425A2300AA5909 /* ARViewUtils.m in Sources */,
 				588D37D31F4BD07A00B1245A /* ARPlugin.m in Sources */,
-				58A4B57F1F3E23DA002D6669 /* Constants.m in Sources */,
+				58A4B57F1F3E23DA002D6669 /* ARConstants.m in Sources */,
 				584CD6161F42E0E300AA5909 /* NSArray.m in Sources */,
-				588D37E31F4C000100B1245A /* WaitingViewController.m in Sources */,
+				588D37E31F4C000100B1245A /* ARWaitingViewController.m in Sources */,
 				A01F3D841845FA5A003D8D62 /* main.m in Sources */,
-				583D8EB41F3FFA4200BB60AF /* BaseApiController.m in Sources */,
+				583D8EB41F3FFA4200BB60AF /* ARBaseApiController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

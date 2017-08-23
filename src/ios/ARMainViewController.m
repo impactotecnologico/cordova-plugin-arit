@@ -7,33 +7,33 @@
 //
 
 
-#import "Constants.h"
-#import "MainViewController.h"
-#import "AugmentedViewController.h"
-#import "ApplicationController.h"
-#import "WaitingViewController.h"
+#import "ARConstants.h"
+#import "ARMainViewController.h"
+#import "ARAugmentedViewController.h"
+#import "ARApplicationController.h"
+#import "ARWaitingViewController.h"
 
-@interface MainViewController ()
+@interface ARMainViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *buttonMenu;
 @property (weak, nonatomic) IBOutlet UIButton *buttonVideo;
-@property WaitingViewController *waitingView;
+@property ARWaitingViewController *waitingView;
 
 
 @property NSString *action;
 @end
 
-@implementation MainViewController
+@implementation ARMainViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    [self setAction: ACTION_MENU];
+    [self setAction: AR_ACTION_MENU];
     
-    [self setWaitingView: [WaitingViewController makeInViewController:self]];
+    [self setWaitingView: [ARWaitingViewController makeInViewController:self]];
     
-    [[ApplicationController Instance] getConfigOnSuccess:^(Config *config)  {
+    [[ARApplicationController Instance] getConfigOnSuccess:^(ARConfig *config)  {
         [self didReceiveConfig:config];
     }];
 }
@@ -44,9 +44,9 @@
     [[[[self navigationController] navigationBar] topItem] setTitle:@"TecnoBoda"];
 }
 
-- (void)didReceiveConfig: (Config*) config
+- (void)didReceiveConfig: (ARConfig*) config
 {
-    [[ApplicationController Instance] getResourcesAndStore:^(NSString *message, float percent) {
+    [[ARApplicationController Instance] getResourcesAndStore:^(NSString *message, float percent) {
         [self didChangeProcessStoreResourceMessage:message percentProcess:percent];
     } callback:^{
         [self didFinishedStoreResource];
@@ -72,11 +72,11 @@
 - (IBAction)onTapButton:(UIButton*)sender
 {
     if ([sender isEqual: [self buttonVideo]])
-        [self setAction: ACTION_VIDEO];
+        [self setAction: AR_ACTION_VIDEO];
     else
-        [self setAction: ACTION_MENU];
+        [self setAction: AR_ACTION_MENU];
     
-    AugmentedViewController *view = [AugmentedViewController Instance];
+    ARAugmentedViewController *view = [ARAugmentedViewController Instance];
     [view setAction: [self action]];
     
     [self presentViewController:view animated:YES completion:nil];

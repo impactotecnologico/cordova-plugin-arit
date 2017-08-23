@@ -13,7 +13,7 @@
         <!--Waiting View Controller-->
         <scene sceneID="pOB-J2-oIb">
             <objects>
-                <viewController storyboardIdentifier="WaitingView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="f4Q-uf-b1O" customClass="WaitingViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WaitingView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="f4Q-uf-b1O" customClass="ARWaitingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wqz-2C-Sag"/>
                         <viewControllerLayoutGuide type="bottom" id="5vE-2t-RyZ"/>
@@ -87,7 +87,7 @@
         <!--Main View Controller-->
         <scene sceneID="JXD-kV-eZ6">
             <objects>
-                <viewController id="UyH-Rn-ZMc" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController id="UyH-Rn-ZMc" customClass="ARMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a9x-EA-8Bw"/>
                         <viewControllerLayoutGuide type="bottom" id="oJm-hE-f05"/>
@@ -146,7 +146,7 @@
         <!--Augmented View Controller-->
         <scene sceneID="Me2-pC-PiW">
             <objects>
-                <viewController storyboardIdentifier="AugmentedView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tRf-9J-4ue" customClass="AugmentedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AugmentedView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tRf-9J-4ue" customClass="ARAugmentedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zaf-M0-lau"/>
                         <viewControllerLayoutGuide type="bottom" id="nRg-bb-e1Q"/>
@@ -239,7 +239,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVb-l2-KlL">
-                                <rect key="frame" x="0.0" y="64" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="80"/>
                                 <subviews>
                                     <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vqL-RZ-LUl">
                                         <rect key="frame" x="-0.5" y="0.0" width="375" height="80"/>

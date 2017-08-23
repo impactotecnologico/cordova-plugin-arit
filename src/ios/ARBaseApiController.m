@@ -6,16 +6,16 @@
 //  Copyright © 2017 Luis Martinell Andreu. All rights reserved.
 //
 
-#import "BaseApiController.h"
+#import "ARBaseApiController.h"
 #import <Pods/AFNetworking.h>
 
-@interface BaseApiController()
+@interface ARBaseApiController()
 
 @property NSString* baseUrl;
 
 @end
 
-@implementation BaseApiController
+@implementation ARBaseApiController
 @synthesize baseUrl;
 
 - (instancetype)init

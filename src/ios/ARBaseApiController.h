@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BaseApiController : NSObject
+@interface ARBaseApiController : NSObject
 
 -(void) getJSONWithBase: (NSString* _Nullable) host
             thisService: (NSString* _Nonnull) action

@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseApiController.h"
+#import "ARBaseApiController.h"
 
-@interface Config : NSObject
+@interface ARConfig : NSObject
 
 @property NSString* titulo;
 @property NSString* fechaTexto;
@@ -29,6 +29,6 @@
 
 
 -(NSString*) pathARResource: (NSString*) nameResource;
-+(Config*) makeWith: (NSDictionary*)data;
++(ARConfig*) makeWith: (NSDictionary*)data;
 
 @end

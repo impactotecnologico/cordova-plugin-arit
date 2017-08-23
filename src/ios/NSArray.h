@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (Map)
+@interface NSArray (ARExtension)
 
 - (NSArray *)mapObjectsUsingBlock:(id (^)(id obj, NSUInteger idx))block;
 

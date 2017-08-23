@@ -6,13 +6,13 @@
 //  Copyright © 2017 Luis Martinell Andreu. All rights reserved.
 //
 
-#import "Config.h"
+#import "ARConfig.h"
 
-@interface Config()
+@interface ARConfig()
 
 @end
 
-@implementation Config
+@implementation ARConfig
 
 @synthesize items;
 @synthesize imagesAR;
@@ -46,11 +46,11 @@
     return [NSString stringWithFormat:@"%@/%@", path, nameResource];
 }
 
-+(Config*) makeWith: (NSDictionary*) data
++(ARConfig*) makeWith: (NSDictionary*) data
 {
     if (data)
     {
-        Config* config = [[Config alloc] init];
+        ARConfig* config = [[ARConfig alloc] init];
         
         [config setTitulo:[data objectForKey:@"titulo"]];
         

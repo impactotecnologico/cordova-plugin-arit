@@ -8,7 +8,7 @@
 
 #import "NSArray.h"
 
-@implementation NSArray (Map)
+@implementation NSArray (ARExtension)
 
 - (NSArray *)mapObjectsUsingBlock:(id (^)(id obj, NSUInteger idx))block {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:[self count]];

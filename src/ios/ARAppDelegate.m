@@ -1,13 +1,11 @@
 
-#import "AppDelegate.h"
+#import "ARAppDelegate.h"
 
-@interface AppDelegate()
-
-@property ApplicationController *app;
+@interface ARAppDelegate()
 
 @end
 
-@implementation AppDelegate
+@implementation ARAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

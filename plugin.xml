@@ -18,31 +18,31 @@
         </config-file>
         
         <header-file src="src/ios/ARPlugin.h" />
-        <header-file src="src/ios/Domains.h" />
-        <header-file src="src/ios/ApplicationController.h" />
-        <header-file src="src/ios/NSArray.h" />
-        <header-file src="src/ios/AugmentedViewController.h" />
-        <header-file src="src/ios/Scene.h" />
-        <header-file src="src/ios/BaseApiController.h" />
-        <header-file src="src/ios/Config.h" />
-        <header-file src="src/ios/ViewUtils.h" />
-        <header-file src="src/ios/Constants.h" />
-        <source-file src="src/ios/WaitingViewController.h" />
+        <header-file src="src/ios/ARDomains.h" />
+        <header-file src="src/ios/ARApplicationController.h" />
+        <!-- <header-file src="src/ios/NSArray.h" /> -->
+        <header-file src="src/ios/ARAugmentedViewController.h" />
+        <header-file src="src/ios/ARScene.h" />
+        <header-file src="src/ios/ARBaseApiController.h" />
+        <header-file src="src/ios/ARConfig.h" />
+        <header-file src="src/ios/ARViewUtils.h" />
+        <header-file src="src/ios/ARConstants.h" />
+        <source-file src="src/ios/ARWaitingViewController.h" />
 
         <source-file src="src/ios/ARPlugin.m" />
-        <source-file src="src/ios/ApplicationController.m" />
-        <source-file src="src/ios/NSArray.m" />
-        <source-file src="src/ios/AugmentedViewController.m" />
-        <source-file src="src/ios/Scene.m" />
-        <source-file src="src/ios/BaseApiController.m" />
-        <source-file src="src/ios/Config.m" />
-        <source-file src="src/ios/ViewUtils.m" />
-        <source-file src="src/ios/Constants.m" />
-        <source-file src="src/ios/WaitingViewController.m" />
+        <source-file src="src/ios/ARApplicationController.m" />
+        <!-- <source-file src="src/ios/NSArray.m" /> -->
+        <source-file src="src/ios/ARAugmentedViewController.m" />
+        <source-file src="src/ios/ARScene.m" />
+        <source-file src="src/ios/ARBaseApiController.m" />
+        <source-file src="src/ios/ARConfig.m" />
+        <source-file src="src/ios/ARViewUtils.m" />
+        <source-file src="src/ios/ARConstants.m" />
+        <source-file src="src/ios/ARWaitingViewController.m" />
 
         <resource-file src="src/ios/next.png" />
         <resource-file src="src/ios/prev.png" />
-        <resource-file src="src/ios/Main.storyboard" />
+        <resource-file src="src/ios/ARMain.storyboard" />
         <resource-file src="src/ios/CatchoomSDK/CraftARResourcesAR.bundle" />
 
         <!-- Frameworks not added on production plugin --> 

@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WaitingViewController : UIViewController
+@interface ARWaitingViewController : UIViewController
 
 -(void) dismiss;
 -(void) setMessage: (NSString*) message;
 -(void) setPercent: (float) percent;
 
-+(WaitingViewController*) makeInViewController: (UIViewController *)parent;
++(ARWaitingViewController*) makeInViewController: (UIViewController *)parent;
 
 @end

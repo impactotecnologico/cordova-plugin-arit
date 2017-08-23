@@ -6,22 +6,21 @@
 //  Copyright © 2017 Luis Martinell Andreu. All rights reserved.
 //
 
-#import "ApplicationController.h"
-#import "BaseApiController.h"
-#import "AppDelegate.h"
-#import "Domains.h"
+#import "ARApplicationController.h"
+#import "ARBaseApiController.h"
+#import "ARDomains.h"
 #import "NSArray.h"
 
-@interface ApplicationController()
+@interface ARApplicationController()
 
-@property BaseApiController* client;
-@property Config* config;
+@property ARBaseApiController* client;
+@property ARConfig* config;
 @property NSMutableDictionary* scenesImage;
 @property NSMutableDictionary* scenesVideo;
 
 @end
 
-@implementation ApplicationController
+@implementation ARApplicationController
 
 @synthesize client;
 @synthesize config;
@@ -30,7 +29,7 @@
 {
     self = [super init];
     if (self) {
-        self.client = [[BaseApiController alloc] init];
+        self.client = [[ARBaseApiController alloc] init];
         self.scenesImage = [[NSMutableDictionary alloc] init];
         self.scenesVideo = [[NSMutableDictionary alloc] init];
     }
@@ -38,15 +37,15 @@
 }
 
 
-- (Scene*) getSceneAt: (unsigned long) index ofType: (TypeContent) type
+- (ARScene*) getSceneAt: (unsigned long) index ofType: (ARTypeContent) type
 {
-    Scene* scene = nil;
+    ARScene* scene = nil;
     NSMutableDictionary* resources;
     switch (type) {
-        case TypeContentImage:
+        case ARTypeContentImage:
             resources = [self scenesImage];
             break;
-        case TypeContentVideo:
+        case ARTypeContentVideo:
             resources = [self scenesVideo];
             break;
         default:
@@ -57,25 +56,25 @@
     
     if (resource)
     {
-        scene = (Scene*) resource;
+        scene = (ARScene*) resource;
     }
     
     if (scene == nil)
     {
-        scene = [Scene makeSceneAt:index ofType:type];
+        scene = [ARScene makeSceneAt:index ofType:type];
         [resources setValue:scene forKey: [NSString stringWithFormat:@"%lu", index]];
     }
     
     return scene;
 }
 
--(void) clearScenesOfType: (TypeContent) type
+-(void) clearScenesOfType: (ARTypeContent) type
 {
     switch (type) {
-        case TypeContentImage:
+        case ARTypeContentImage:
             [[self scenesImage] removeAllObjects];
             break;
-        case TypeContentVideo:
+        case ARTypeContentVideo:
             [[self scenesVideo] removeAllObjects];
             break;
         default:
@@ -83,18 +82,18 @@
     }
 }
 
-+ (ApplicationController*) Instance
++ (ARApplicationController*) Instance
 {
-    static ApplicationController* _instance = nil;
+    static ARApplicationController* _instance = nil;
     
     if (_instance == nil)
     {
-        _instance = [[ApplicationController alloc] init];
+        _instance = [[ARApplicationController alloc] init];
     }
     return _instance;
 }
 
-- (void) getConfigOnSuccess:(void(^)(Config*)) handler
+- (void) getConfigOnSuccess:(void(^)(ARConfig*)) handler
 {
     
     if ([self config])
@@ -107,7 +106,7 @@
                            thisService: @"config.json"
                             withMethod: @"GET"
                              onSuccess:^(NSDictionary * _Nullable data) {
-                                 [self setConfig: [Config makeWith: data]];
+                                 [self setConfig: [ARConfig makeWith: data]];
 
                                  handler([self config]);
                              }

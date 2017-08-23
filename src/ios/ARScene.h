@@ -15,14 +15,14 @@
 #import <CraftARAugmentedRealitySDK/CraftARTrackingContentImage.h>
 #import <CraftARAugmentedRealitySDK/CraftARTrackingContentVideo.h>
 
-#import "Domains.h"
+#import "ARDomains.h"
 
-@interface Scene : NSObject
+@interface ARScene : NSObject
 
-@property TypeContent type;
+@property ARTypeContent type;
 @property unsigned long index;
 @property CraftARTrackingContent* content;
 
-+(Scene*) makeSceneAt: (unsigned long) index ofType: (TypeContent) type;
++(ARScene*) makeSceneAt: (unsigned long) index ofType: (ARTypeContent) type;
 
 @end

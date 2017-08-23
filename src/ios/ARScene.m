@@ -6,30 +6,30 @@
 //  Copyright © 2017 Luis Martinell Andreu. All rights reserved.
 //
 
-#import "Scene.h"
-#import "ApplicationController.h"
+#import "ARScene.h"
+#import "ARApplicationController.h"
 
-@interface Scene()
+@interface ARScene()
 
 @end
 
-@implementation Scene
+@implementation ARScene
 
-+(Scene*) makeSceneAt: (unsigned long) index ofType: (TypeContent) type
++(ARScene*) makeSceneAt: (unsigned long) index ofType: (ARTypeContent) type
 {
-    Scene* scene = [[Scene alloc] init];
+    ARScene* scene = [[ARScene alloc] init];
     
     [scene setType:type];
     [scene setIndex:index];
     
-    [[ApplicationController Instance] getConfigOnSuccess:^(Config * config)
+    [[ARApplicationController Instance] getConfigOnSuccess:^(ARConfig * config)
     {
         NSString* nameResource;
         switch (type) {
-            case TypeContentImage:
+            case ARTypeContentImage:
                 nameResource = [[config imagesAR] objectAtIndex:index];
                 break;
-            case TypeContentVideo:
+            case ARTypeContentVideo:
                 nameResource = [[config videosAR] objectAtIndex:index];
                 break;
             default:
@@ -40,10 +40,10 @@
         NSURL* urlResource = [NSURL fileURLWithPath:pathResource];
         
         switch (type) {
-            case TypeContentImage:
+            case ARTypeContentImage:
                 [scene setContent: [[CraftARTrackingContentImage alloc] initWithImageFromURL:urlResource]];
                 break;
-            case TypeContentVideo:
+            case ARTypeContentVideo:
                 [scene setContent: [[CraftARTrackingContentVideo alloc] initWithVideoFrom:urlResource]];
                 break;
             default:

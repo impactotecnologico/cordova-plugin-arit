@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AugmentedViewController : UIViewController
+@interface ARAugmentedViewController : UIViewController
 
 @property NSString *action;
 
-+(AugmentedViewController*) Instance;
++(ARAugmentedViewController*) Instance;
 
 @end

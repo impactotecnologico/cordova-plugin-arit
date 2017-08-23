@@ -6,22 +6,22 @@
 //  Copyright © 2017 Luis Martinell Andreu. All rights reserved.
 //
 
-#import "WaitingViewController.h"
+#import "ARWaitingViewController.h"
 
-@interface WaitingViewController ()
+@interface ARWaitingViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *labelProcessMessage;
 @property (weak, nonatomic) IBOutlet UILabel *labelProcessPercent;
 
 @end
 
-@implementation WaitingViewController
+@implementation ARWaitingViewController
 
 #pragma mark Init by Storyboard.
-+(WaitingViewController*) makeInViewController: (UIViewController *)parent
++(ARWaitingViewController*) makeInViewController: (UIViewController *)parent
 {
-    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    WaitingViewController* viewController = (WaitingViewController*) [storyboard instantiateViewControllerWithIdentifier:@"WaitingView"];
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"ARMain" bundle:nil];
+    ARWaitingViewController* viewController = (ARWaitingViewController*) [storyboard instantiateViewControllerWithIdentifier:@"WaitingView"];
     
     [parent addChildViewController:viewController];
     viewController.view.frame = [[parent view] frame];
@@ -35,6 +35,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -6,9 +6,9 @@
 //  Copyright © 2017 Luis Martinell Andreu. All rights reserved.
 //
 
-#import "ViewUtils.h"
+#import "ARViewUtils.h"
 
-@implementation ViewUtils
+@implementation ARViewUtils
 
 
 + (UIColor *)colorFromHexString:(NSString *)hexString {

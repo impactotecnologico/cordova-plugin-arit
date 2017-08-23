@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ViewUtils : NSObject
+@interface ARViewUtils : NSObject
 
 + (UIColor *)colorFromHexString:(NSString *)hexString;
 

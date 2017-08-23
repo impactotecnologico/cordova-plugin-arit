@@ -40,9 +40,9 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs to access your gallery.</string>
 	<key>UILaunchStoryboardName</key>
-	<string>Launch</string>
+	<string>ARLaunch</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>ARMain</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

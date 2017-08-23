@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Domains : NSObject
+@interface ARDomains : NSObject
 
 typedef enum
 {
-    TypeContentImage,
-    TypeContentVideo
-} TypeContent;
+    ARTypeContentImage,
+    ARTypeContentVideo
+} ARTypeContent;
 
 @end

@@ -7,16 +7,16 @@
 //
 
 #import "ARPlugin.h"
-#import "ApplicationController.h"
-#import "Constants.h"
-#import "AugmentedViewController.h"
-#import "WaitingViewController.h"
+#import "ARApplicationController.h"
+#import "ARConstants.h"
+#import "ARAugmentedViewController.h"
+#import "ARWaitingViewController.h"
 
 @interface ARPlugin()
 
 @property NSString* action;
 @property NSString* lastCallBackId;
-@property WaitingViewController *waitingView;
+@property ARWaitingViewController *waitingView;
 
 @end
 
@@ -28,7 +28,7 @@
 {
     [self setLastCallBackId: command.callbackId];
     
-    [self setAction: ACTION_MENU];
+    [self setAction: AR_ACTION_MENU];
     
     [self initialize];
     
@@ -39,7 +39,7 @@
 {
     [self setLastCallBackId: command.callbackId];
     
-    [self setAction: ACTION_VIDEO];
+    [self setAction: AR_ACTION_VIDEO];
     
     [self initialize];
     
@@ -68,18 +68,18 @@
 {
     NSLog(@"AR-IT plugin - initialize");
     
-    [self setWaitingView: [WaitingViewController makeInViewController:[self viewController]]];
+    [self setWaitingView: [ARWaitingViewController makeInViewController:[self viewController]]];
     
-    [[ApplicationController Instance] getConfigOnSuccess:^(Config *config)  {
+    [[ARApplicationController Instance] getConfigOnSuccess:^(ARConfig *config)  {
         [self didReceiveConfig:config];
     }];
 }
 
-- (void)didReceiveConfig: (Config*) config
+- (void)didReceiveConfig: (ARConfig*) config
 {
     NSLog(@"AR-IT plugin - DidReceiveConfig");
     
-    [[ApplicationController Instance] getResourcesAndStore:^(NSString *message, float percent) {
+    [[ARApplicationController Instance] getResourcesAndStore:^(NSString *message, float percent) {
         [self didChangeProcessStoreResourceMessage:message percentProcess:percent];
     } callback:^{
         [self didFinishedStoreResource];
@@ -96,7 +96,7 @@
 {
     [[self waitingView] dismiss];
     
-    AugmentedViewController* viewController = [AugmentedViewController Instance];
+    ARAugmentedViewController* viewController = [ARAugmentedViewController Instance];
     
     [viewController setAction:[self action]];
     

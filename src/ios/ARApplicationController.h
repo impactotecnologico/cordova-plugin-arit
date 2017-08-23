@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Config.h"
-#import "Scene.h"
-@interface ApplicationController : NSObject
+#import "ARConfig.h"
+#import "ARScene.h"
+@interface ARApplicationController : NSObject
 
 @property BOOL continueProccess;
 
-- (void) getConfigOnSuccess:(void(^)(Config*)) handler;
+- (void) getConfigOnSuccess:(void(^)(ARConfig*)) handler;
 - (void) getResourcesAndStore:(void(^)(NSString* message, float percent)) handler callback: (void(^)()) onFinished;
-- (Scene*) getSceneAt: (unsigned long) index ofType: (TypeContent) type;
--(void) clearScenesOfType: (TypeContent) type;
+- (ARScene*) getSceneAt: (unsigned long) index ofType: (ARTypeContent) type;
+-(void) clearScenesOfType: (ARTypeContent) type;
 
-+(ApplicationController*) Instance;
++(ARApplicationController*) Instance;
 @end

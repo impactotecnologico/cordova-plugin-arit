@@ -6,12 +6,12 @@
 //  Copyright © 2017 Luis Martinell Andreu. All rights reserved.
 //
 
-#import "AugmentedViewController.h"
-#import "ApplicationController.h"
-#import "ViewUtils.h"
-#import "Constants.h"
+#import "ARAugmentedViewController.h"
+#import "ARApplicationController.h"
+#import "ARViewUtils.h"
+#import "ARConstants.h"
 
-@interface AugmentedViewController() <CraftARSDKProtocol, CraftARContentEventsProtocol, SearchProtocol, CraftARTrackingEventsProtocol>
+@interface ARAugmentedViewController() <CraftARSDKProtocol, CraftARContentEventsProtocol, SearchProtocol, CraftARTrackingEventsProtocol>
 
 @property CraftARSDK *sdk;
 @property CraftARCloudRecognition *cloudRecognition;
@@ -20,9 +20,9 @@
 
 @property unsigned long currentIndex;
 @property unsigned long countResources;
-@property TypeContent currentTypeContent;
+@property ARTypeContent currentTypeContent;
 
-@property Scene* currentScene;
+@property ARScene* currentScene;
 @property CraftARTrackingContent* nextButton;
 @property CraftARTrackingContent* prevButton;
 @property CraftARTrackingContent* cart;
@@ -36,12 +36,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageInfoReference;
 @property (weak, nonatomic) IBOutlet UIView *viewInfoBackground;
 
-@property Config* config;
+@property ARConfig* config;
 @property BOOL isVisibleCard;
 
 @end
 
-@implementation AugmentedViewController
+@implementation ARAugmentedViewController
 
 @synthesize sdk;
 @synthesize cloudRecognition;
@@ -49,10 +49,10 @@
 @synthesize currentItem;
 
 #pragma mark Init by Storyboard.
-+(AugmentedViewController*) Instance
++(ARAugmentedViewController*) Instance
 {
-    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    AugmentedViewController* augmentedViewController = (AugmentedViewController*) [storyboard instantiateViewControllerWithIdentifier:@"AugmentedView"];
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"ARMain" bundle:nil];
+    ARAugmentedViewController* augmentedViewController = (ARAugmentedViewController*) [storyboard instantiateViewControllerWithIdentifier:@"AugmentedView"];
     return augmentedViewController;
 }
 #pragma mark -
@@ -64,31 +64,31 @@
     [self setCurrentIndex:0];
     [self setIsVisibleCard:NO];
     
-    [[ApplicationController Instance] getConfigOnSuccess:^(Config * config)
+    [[ARApplicationController Instance] getConfigOnSuccess:^(ARConfig * config)
      {
          [self setConfig:config];
      }];
     
-    [[ApplicationController Instance] setContinueProccess:YES];
+    [[ARApplicationController Instance] setContinueProccess:YES];
     
     [[self viewInfoBackground] setBackgroundColor:[UIColor whiteColor]];
-    if ([[self action] isEqualToString: ACTION_VIDEO])
+    if ([[self action] isEqualToString: AR_ACTION_VIDEO])
     {
-        [self setCurrentTypeContent:TypeContentVideo];
+        [self setCurrentTypeContent:ARTypeContentVideo];
         [self setCountResources: [[[self config] videosAR] count]];
-        [[self labelInfoMessage] setText: TEXT_HELP_WELCOME];
+        [[self labelInfoMessage] setText: AR_TEXT_HELP_WELCOME];
         NSString *path = [[self config] pathARResource:@"bienvenida_mini.jpg"];
         [[self imageInfoReference] setImage: [[UIImage alloc] initWithContentsOfFile:path]];
-        [[[[self navigationController] navigationBar] topItem] setTitle:TEXT_TITLE_WELCOME];
+        [[[[self navigationController] navigationBar] topItem] setTitle:AR_TEXT_TITLE_WELCOME];
     }
     else
     {
-        [self setCurrentTypeContent:TypeContentImage];
+        [self setCurrentTypeContent:ARTypeContentImage];
         [self setCountResources: [[[self config] imagesAR] count]];
-        [[self labelInfoMessage] setText: TEXT_HELP_MENU_STEP_1];
+        [[self labelInfoMessage] setText: AR_TEXT_HELP_MENU_STEP_1];
         NSString *path = [[self config] pathARResource:@"minuta_mini.jpg"];
         [[self imageInfoReference] setImage: [[UIImage alloc] initWithContentsOfFile:path]];
-        [[[[self navigationController] navigationBar] topItem] setTitle:TEXT_TITLE_MENU];
+        [[[[self navigationController] navigationBar] topItem] setTitle:AR_TEXT_TITLE_MENU];
     }
     
     [self setSdk:[CraftARSDK sharedCraftARSDK]];
@@ -111,8 +111,9 @@
 {
     [[self sdk]  stopCapture];
     [[self tracking]  removeAllARItems];
-    [[ApplicationController Instance] setContinueProccess:NO];
-    [[ApplicationController Instance] clearScenesOfType: [self currentTypeContent]];
+    [[ARApplicationController Instance] setContinueProccess:NO];
+    [[ARApplicationController Instance] clearScenesOfType: [self currentTypeContent]];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super viewWillDisappear:animated];
 }
 
@@ -155,15 +156,15 @@
     [self updateCurrentScene];
     
     switch ([self currentTypeContent]) {
-        case TypeContentImage:
+        case ARTypeContentImage:
         {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(),
             ^{
-                if ([[ApplicationController Instance] continueProccess])
+                if ([[ARApplicationController Instance] continueProccess])
                 {
-                   [[self labelInfoMessage] setText: TEXT_HELP_MENU_STEP_2];
-                   [[ApplicationController Instance] getConfigOnSuccess:^(Config * config) {
-                       [[self viewInfoBackground] setBackgroundColor: [ViewUtils colorFromHexString: [config colorRosa]]];
+                   [[self labelInfoMessage] setText: AR_TEXT_HELP_MENU_STEP_2];
+                   [[ARApplicationController Instance] getConfigOnSuccess:^(ARConfig * config) {
+                       [[self viewInfoBackground] setBackgroundColor: [ARViewUtils colorFromHexString: [config colorRosa]]];
                    }];
                 }
             });
@@ -211,7 +212,7 @@
         }
     }
     
-    [self setCurrentScene: [[ApplicationController Instance] getSceneAt: [self currentIndex] ofType: [self currentTypeContent]]];
+    [self setCurrentScene: [[ARApplicationController Instance] getSceneAt: [self currentIndex] ofType: [self currentTypeContent]]];
     [[[self currentScene] content] setWrapMode: CRAFTAR_TRACKING_WRAP_ASPECT_FIT];
     [[[self currentScene] content] setScale:CATransform3DMakeScale(1.5, 2.2, 1.5)];
     [[self currentItem] addContent:[[self currentScene] content]];
@@ -273,9 +274,9 @@
     [self showScanning];
     [[self sdk] setSearchControllerDelegate:[[self cloudRecognition] mSearchController]];
     
-    __block AugmentedViewController* mySelf = self;
+    __block ARAugmentedViewController* mySelf = self;
     
-    [[ApplicationController Instance] getConfigOnSuccess:^(Config * config) {
+    [[ARApplicationController Instance] getConfigOnSuccess:^(ARConfig * config) {
         [[[self cloudRecognition] mSearchController] setSearchPeriod: [[config delay] intValue]];
         [[self cloudRecognition] setCollectionWithToken: [config arCollection] onSuccess:^{
             
@@ -386,7 +387,7 @@
             }
             else
             {
-                if ([self currentTypeContent] == TypeContentImage) // other contents
+                if ([self currentTypeContent] == ARTypeContentImage) // other contents
                 {
                     [self toggleCard];
                 }
