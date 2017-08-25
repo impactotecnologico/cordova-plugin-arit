@@ -20,7 +20,7 @@
         <header-file src="src/ios/ARPlugin.h" />
         <header-file src="src/ios/ARDomains.h" />
         <header-file src="src/ios/ARApplicationController.h" />
-        <!-- <header-file src="src/ios/NSArray.h" /> -->
+        <header-file src="src/ios/NSArray.h" />
         <header-file src="src/ios/ARAugmentedViewController.h" />
         <header-file src="src/ios/ARScene.h" />
         <header-file src="src/ios/ARBaseApiController.h" />
@@ -31,7 +31,7 @@
 
         <source-file src="src/ios/ARPlugin.m" />
         <source-file src="src/ios/ARApplicationController.m" />
-        <!-- <source-file src="src/ios/NSArray.m" /> -->
+        <source-file src="src/ios/NSArray.m" />
         <source-file src="src/ios/ARAugmentedViewController.m" />
         <source-file src="src/ios/ARScene.m" />
         <source-file src="src/ios/ARBaseApiController.m" />
@@ -45,8 +45,8 @@
         <resource-file src="src/ios/ARMain.storyboard" />
         <resource-file src="src/ios/CatchoomSDK/CraftARResourcesAR.bundle" />
 
-        <!-- Frameworks not added on production plugin --> 
-        <framework src="src/ios/CatchoomSDK/Pods.framework" custom="true"  /> 
+        <!-- Frameworks not added on production plugin 
+        <framework src="src/ios/CatchoomSDK/Pods.framework" custom="true"  /> --> 
         <framework src="src/ios/CatchoomSDK/CraftARAugmentedRealitySDK.framework" custom="true"  /> 
         
         <framework src="AudioToolbox.framework" />

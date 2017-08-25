@@ -10,6 +10,7 @@
 #import "ARBaseApiController.h"
 #import "ARDomains.h"
 #import "NSArray.h"
+#import "ARConstants.h"
 
 @interface ARApplicationController()
 
@@ -143,7 +144,7 @@
             for (NSString* nameResource in resources)
             {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    handler(@"Downloading resource...", percent);
+                    handler(AR_TEXT_DOWNLOADING_RESOURCE, percent);
                 });
                 BOOL isDir;
                 NSString *filePath = [[self config] pathARResource: nameResource];
@@ -155,7 +156,7 @@
                      {
                          percent = percent + improvement;
                          dispatch_async(dispatch_get_main_queue(), ^{
-                             handler(@"Saving resource...", percent);
+                             handler(AR_TEXT_SAVING_RESOURCE, percent);
                          });
                          if (data)
                          {
@@ -181,7 +182,7 @@
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{
-            handler(@"Finished.", percent);
+            handler(AR_TEXT_FINISHED, percent);
             onFinished();
         });
     });

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "ARConfig.h"
 #import "ARScene.h"
+#define ALWAYS 1
+
 @interface ARApplicationController : NSObject
 
 @property BOOL continueProccess;

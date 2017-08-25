@@ -1,5 +1,5 @@
 //
-//  BaseApiController.m
+//  ARBaseApiController.m
 //  itarbasesac-boda
 //
 //  Created by Roysbert Salinas on 12/8/17.
@@ -7,7 +7,14 @@
 //
 
 #import "ARBaseApiController.h"
-#import <Pods/AFNetworking.h>
+#import "ARConstants.h"
+
+// Only for running on native projects.
+//#import <Pods/AFNetworking.h>
+
+// Only for running on cordova.
+#import "AFNetworking.h"
+
 
 @interface ARBaseApiController()
 

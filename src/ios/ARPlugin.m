@@ -35,7 +35,7 @@
     [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: [self lastCallBackId]];
 }
 
-- (void) bienvenido: (CDVInvokedUrlCommand*)command;
+- (void) bienvenida: (CDVInvokedUrlCommand*)command;
 {
     [self setLastCallBackId: command.callbackId];
     

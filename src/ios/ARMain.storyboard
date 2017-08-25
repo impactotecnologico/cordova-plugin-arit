@@ -165,14 +165,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDZ-KO-R22">
-                                                <rect key="frame" x="112" y="0.0" width="151.5" height="48"/>
+                                                <rect key="frame" x="123.5" y="0.0" width="129" height="48"/>
                                                 <subviews>
                                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lyg-eQ-3U3">
                                                         <rect key="frame" x="8" y="14" width="20" height="20"/>
                                                         <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </activityIndicatorView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escaneando..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHQ-f9-rSl">
-                                                        <rect key="frame" x="36" y="8" width="107.5" height="32"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanning..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHQ-f9-rSl">
+                                                        <rect key="frame" x="36" y="8" width="85" height="32"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90416416952054801" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -304,8 +304,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonBack" destination="KRe-Lx-LDH" id="9WZ-aP-K3I"/>
                         <outlet property="imageInfoReference" destination="zf5-f8-gtu" id="2tz-VO-hYz"/>
                         <outlet property="labelInfoMessage" destination="bgW-0W-DLN" id="rzY-xr-gMt"/>
+                        <outlet property="labelScanning" destination="rHQ-f9-rSl" id="EAf-MN-uaS"/>
                         <outlet property="viewBack" destination="IQt-85-qlt" id="awv-HT-E4W"/>
                         <outlet property="viewInfoBackground" destination="vqL-RZ-LUl" id="z4Z-4K-A1U"/>
                         <outlet property="viewInfoDialog" destination="MVb-l2-KlL" id="7CP-G2-goI"/>

@@ -36,6 +36,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageInfoReference;
 @property (weak, nonatomic) IBOutlet UIView *viewInfoBackground;
 
+@property (weak, nonatomic) IBOutlet UILabel *labelScanning;
+@property (weak, nonatomic) IBOutlet UIButton *buttonBack;
+
 @property ARConfig* config;
 @property BOOL isVisibleCard;
 
@@ -59,7 +62,12 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"AugmentedView for : %@", [self action]);
+    
     [super viewDidLoad];
+    
+    [[self labelScanning] setText:AR_TEXT_LABEL_SCANNING];
+    [[self buttonBack]  setTitle:AR_TEXT_BUTTON_BACK forState:UIControlStateNormal];
     
     [self setCurrentIndex:0];
     [self setIsVisibleCard:NO];
@@ -90,6 +98,8 @@
         [[self imageInfoReference] setImage: [[UIImage alloc] initWithContentsOfFile:path]];
         [[[[self navigationController] navigationBar] topItem] setTitle:AR_TEXT_TITLE_MENU];
     }
+    
+    NSLog(@"AugmentedView with type : %u", [self currentTypeContent]);
     
     [self setSdk:[CraftARSDK sharedCraftARSDK]];
     [[self sdk] setDelegate:self];
@@ -298,8 +308,6 @@
     if ([results count] > 0) {
         [[self sdk] stopFinder];
         
-        [self showBackButton];
-        
         CraftARSearchResult *result = [results objectAtIndex:0];
         CraftARItem* item = result.item;
         
@@ -307,22 +315,28 @@
         {
             NSLog(@"isKindOfClass CraftARItemAR");
             [self setCurrentItem: (CraftARItemAR*)item];
-            if ([[item name] isEqualToString: AR_COLLECTION_TYPE_MEMORANDUM] || [[item name] isEqualToString: AR_COLLECTION_TYPE_WELCOME])
+            if (   ([[item name] isEqualToString: AR_COLLECTION_TYPE_MEMORANDUM] && [self currentTypeContent] == ARTypeContentImage)
+                || ([[item name] isEqualToString: AR_COLLECTION_TYPE_WELCOME] && [self currentTypeContent] == ARTypeContentVideo))
             {
+                [self showBackButton];
+                
                 [self augmentedContent];
-            }
             
-            
-            
-            NSError *err = [[self tracking] addARItem: [self currentItem]];
-            if (err) {
-                NSLog(@"Error adding AR item: %@", err.localizedDescription);
-            }
-            else
-            {
-                [[self tracking] startTracking];
+                NSError *err = [[self tracking] addARItem: [self currentItem]];
+                if (err) {
+                    NSLog(@"Error adding AR item: %@", err.localizedDescription);
+                }
+                else
+                {
+                    [[self tracking] startTracking];
+                }
             }
         }
+    }
+    
+    if ([self currentScene] == nil)
+    {
+        [[self sdk] startFinder];
     }
 }
 

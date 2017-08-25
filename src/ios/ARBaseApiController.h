@@ -10,6 +10,7 @@
 
 @interface ARBaseApiController : NSObject
 
+
 -(void) getJSONWithBase: (NSString* _Nullable) host
             thisService: (NSString* _Nonnull) action
              withMethod: (NSString* _Nullable) method
