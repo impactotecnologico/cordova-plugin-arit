@@ -7,10 +7,10 @@ ln -s -f A Current
 cd -
 popd
 
-pushd plugins/net.it.arit.plugin/src/ios/CatchoomSDK/Pods.framework
-ln -s -f Versions/A/Headers/ Headers
-ln -s -f Versions/A/Pods Pods
-cd Versions
-ln -s -f A Current
-cd -
-popd
+#pushd plugins/net.it.arit.plugin/src/ios/CatchoomSDK/Pods.framework
+#ln -s -f Versions/A/Headers/ Headers
+#ln -s -f Versions/A/Pods Pods
+#cd Versions
+#ln -s -f A Current
+#cd -
+#popd

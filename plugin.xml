@@ -6,7 +6,10 @@
     </js-module>
 
     <platform name="ios">
-    <hook type="before_plugin_install" src="hooks/before_plugin_install/000-create-symlinks.sh" />
+        <hook type="before_plugin_install" src="hooks/before_plugin_install/copy-sdk-catchoom-dependencies.sh" />
+        <hook type="before_plugin_install" src="hooks/before_plugin_install/copy-hook.sh" />
+        <hook type="after_prepare" src="hooks/after_prepare/configure_ats.sh"  />
+
         <config-file target="config.xml" parent="/*">
                 <feature name="ARPlugin">
                     <param name="ios-package" value="ARPlugin"/>
@@ -16,7 +19,8 @@
         <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
             <string>Open the camera to recognise objects</string>
         </config-file>
-        
+
+
         <header-file src="src/ios/ARPlugin.h" />
         <header-file src="src/ios/ARDomains.h" />
         <header-file src="src/ios/ARApplicationController.h" />
