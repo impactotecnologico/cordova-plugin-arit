@@ -44,8 +44,12 @@
                 [scene setContent: [[CraftARTrackingContentImage alloc] initWithImageFromURL:urlResource]];
                 break;
             case ARTypeContentVideo:
-                [scene setContent: [[CraftARTrackingContentVideo alloc] initWithVideoFrom:urlResource]];
+            {
+                CraftARTrackingContentVideo* content = [[CraftARTrackingContentVideo alloc] initWithVideoFrom:urlResource];
+                [content setHasTransparencyMask:true];
+                [scene setContent: content];
                 break;
+            }
             default:
                 break;
         }
