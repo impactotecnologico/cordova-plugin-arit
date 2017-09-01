@@ -180,9 +180,11 @@ public class AugmentedActivity extends CraftARActivity implements CraftARSearchR
     }
 
     public void addItemFromURL(String URL) {
-        System.out.println("Agregando imagen " + URL);
+        
 
-        String imageURL = Environment.getExternalStorageDirectory() + "/" + AugmentedActivity.arDirectory + "/" + this.platosURL.get(0);
+        String imageURL = Environment.getExternalStorageDirectory() + "/" + AugmentedActivity.arDirectory + "/" + URL;
+
+        System.out.println("Agregando imagen " + imageURL);
 
         //String imageURL = getApplicationContext().getExternalFilesDir(null) + "/"+URL;
 
