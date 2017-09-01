@@ -222,6 +222,13 @@ public class AugmentedActivity extends CraftARActivity implements CraftARSearchR
             public void onTouchDown(CraftARContent craftARContent) {
                 System.out.println("touch down");
                 System.out.println(craftARContent.toString());
+
+                if (isVideoPlaying){
+                  AugmentedActivity.this.myARItem.removeContent(mCraftARContentVideo);
+                  return;
+                }
+
+                
                 System.out.println(AugmentedActivity.this.changeButton.getClassID());
                 System.out.println(AugmentedActivity.this.prevButtonScene.getClassID());
                 if (craftARContent.toString().equals(AugmentedActivity.this.changeButton.getClassID())) {
