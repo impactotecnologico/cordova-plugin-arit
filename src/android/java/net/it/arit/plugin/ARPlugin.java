@@ -160,7 +160,6 @@ public class ARPlugin extends CordovaPlugin {
     @Override
     protected void onPostExecute(JSONObject result) {
       ARPlugin.JSON_REMOTE = result;
-      System.out.println(JSON_REMOTE);
     }
 
     private String streamToString(InputStream inputStream) {
@@ -245,7 +244,10 @@ public class ARPlugin extends CordovaPlugin {
           } else if (singleName.contains("info")) {
             Log.d(TAG, "Archivo info"); // solo se indica que se tiene. Por ahora se usan directamente según nombre en AugmentedActivity
           } else {
-            AugmentedActivity.platosURL.add(singleName);
+            if (!AugmentedActivity.platosURL.contains(singleName)){
+              AugmentedActivity.platosURL.add(singleName);  
+            }
+            
           }
           publishProgress(contador -= 1);
           continue;
