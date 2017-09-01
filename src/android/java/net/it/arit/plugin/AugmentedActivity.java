@@ -384,6 +384,29 @@ public class AugmentedActivity extends CraftARActivity implements CraftARSearchR
         }
     }
 
+    private void welcomeAugmented(CraftARItemAR item) {
+    mCraftARSDK.stopFinder();
+
+    // Cast the found item to an AR item
+    this.myARItem = item;
+
+    String videoURL = Environment.getExternalStorageDirectory() + "/" + AugmentedActivity.arDirectory + "/" + videos.get(0);
+
+    mCraftARContentVideo = new CraftARContentVideo(videoURL, true, false, false, true);
+    mCraftARContentVideo.setWrapMode(CraftARContent.ContentWrapMode.WRAP_MODE_ASPECT_FIT);
+    mCraftARContentVideo.setScale(this.scale);
+
+    this.myARItem.addContent(mCraftARContentVideo);
+
+    CraftARError error = mTracking.addItem(this.myARItem);
+    if (error == null) {
+      mTracking.startTracking();
+      mScanningLayout.setVisibility(View.GONE);
+    } else {
+      Log.e(TAG, error.getErrorMessage());
+    }
+  }
+
     private void menuAugmented(CraftARItemAR item) {
         // Stop Finding
         mCraftARSDK.stopFinder();
@@ -391,9 +414,9 @@ public class AugmentedActivity extends CraftARActivity implements CraftARSearchR
         // Cast the found item to an AR item
         this.myARItem = item;
 
-        System.out.println("Agregando primer plato " + this.platosURL.get(0));
+        String imageURL = Environment.getExternalStorageDirectory() + "/" + AugmentedActivity.arDirectory + "/" + this.platosURL.get(0);
 
-        String imageURL = getApplicationContext().getExternalFilesDir(null) + "/" + this.platosURL.get(0);
+        System.out.println("Agregando primer plato " + imageURL);        
 
         this.platosScenes.add(Scenes.createScene(new CraftARContentImage(imageURL), imageURL));
 
