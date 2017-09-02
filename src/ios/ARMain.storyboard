@@ -159,23 +159,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abb-5j-GId">
-                                <rect key="frame" x="0.0" y="619" width="375" height="48"/>
+                                <rect key="frame" x="0.0" y="309.5" width="375" height="48"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="noe-Sp-scc">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDZ-KO-R22">
-                                                <rect key="frame" x="123.5" y="0.0" width="129" height="48"/>
+                                                <rect key="frame" x="123.5" y="0.0" width="129.5" height="48"/>
                                                 <subviews>
                                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lyg-eQ-3U3">
                                                         <rect key="frame" x="8" y="14" width="20" height="20"/>
                                                         <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </activityIndicatorView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanning..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHQ-f9-rSl">
-                                                        <rect key="frame" x="36" y="8" width="85" height="32"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <rect key="frame" x="36" y="8" width="85.5" height="32"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="0.90416416952054801" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
+                                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <size key="shadowOffset" width="1" height="1"/>
                                                     </label>
                                                 </subviews>
                                                 <constraints>
@@ -188,7 +190,6 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40338720034246578" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="bDZ-KO-R22" firstAttribute="centerX" secondItem="noe-Sp-scc" secondAttribute="centerX" id="3Za-Gm-eng"/>
                                             <constraint firstAttribute="bottom" secondItem="bDZ-KO-R22" secondAttribute="bottom" id="5sj-kp-R4f"/>
@@ -204,7 +205,7 @@
                                     <constraint firstAttribute="trailing" secondItem="noe-Sp-scc" secondAttribute="trailing" id="xs4-Ka-3u6"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IQt-85-qlt">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IQt-85-qlt">
                                 <rect key="frame" x="0.0" y="619" width="375" height="48"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2z-JJ-1z3">
@@ -212,7 +213,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRe-Lx-LDH">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                 <state key="normal" title="Back">
                                                     <color key="titleColor" red="0.98791819810000003" green="0.99617189169999998" blue="0.99605172870000003" alpha="0.94616866438356162" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -286,7 +287,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.073465260152284273" green="0.073465260152284273" blue="0.073465260152284273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="MVb-l2-KlL" secondAttribute="trailing" id="3IW-Yz-rp7"/>
                             <constraint firstItem="MVb-l2-KlL" firstAttribute="top" secondItem="Zaf-M0-lau" secondAttribute="bottom" id="6Vb-rK-wdq"/>
@@ -296,8 +297,8 @@
                             <constraint firstItem="IQt-85-qlt" firstAttribute="width" secondItem="HUR-jd-fGF" secondAttribute="width" id="F1X-VX-1oN"/>
                             <constraint firstItem="nRg-bb-e1Q" firstAttribute="top" secondItem="IQt-85-qlt" secondAttribute="bottom" id="Gv2-6G-IIP"/>
                             <constraint firstItem="IQt-85-qlt" firstAttribute="centerX" secondItem="HUR-jd-fGF" secondAttribute="centerX" id="KuH-4k-iHm"/>
-                            <constraint firstItem="nRg-bb-e1Q" firstAttribute="top" secondItem="abb-5j-GId" secondAttribute="bottom" id="LcK-Js-hVQ"/>
                             <constraint firstItem="abb-5j-GId" firstAttribute="width" secondItem="HUR-jd-fGF" secondAttribute="width" id="Uqx-B3-Jcw"/>
+                            <constraint firstItem="abb-5j-GId" firstAttribute="centerY" secondItem="HUR-jd-fGF" secondAttribute="centerY" id="fc6-K6-U3J"/>
                             <constraint firstItem="G0A-lP-2L3" firstAttribute="width" secondItem="HUR-jd-fGF" secondAttribute="width" id="g26-Rd-vWU"/>
                             <constraint firstItem="MVb-l2-KlL" firstAttribute="leading" secondItem="HUR-jd-fGF" secondAttribute="leading" id="mwK-pd-QYv"/>
                             <constraint firstItem="G0A-lP-2L3" firstAttribute="centerX" secondItem="HUR-jd-fGF" secondAttribute="centerX" id="tT5-9f-oCH"/>

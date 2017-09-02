@@ -192,7 +192,7 @@
    ^{
         NSLog(@"showScanning");
         self.viewScanOverlay.hidden = false;
-        self.viewBack.hidden = true;
+        //self.viewBack.hidden = true;
     });
 
 }
