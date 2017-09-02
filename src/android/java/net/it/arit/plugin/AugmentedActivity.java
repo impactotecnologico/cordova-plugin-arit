@@ -295,7 +295,7 @@ public class AugmentedActivity extends CraftARActivity implements CraftARSearchR
             findViewById(getResources().getIdentifier("layout_info","id",getPackageName())).setVisibility(View.INVISIBLE);
             Integer trueIndex = index + 1;
             System.out.println(trueIndex);
-            String imageURL = Environment.getExternalStorageDirectory() + "/" + AugmentedActivity.arDirectory + "/" "/info"+trueIndex.toString()+".png";
+            String imageURL = Environment.getExternalStorageDirectory() + "/" + AugmentedActivity.arDirectory + "/info"+trueIndex.toString()+ ".png";
 //            String imageURL = getApplicationContext().getExternalFilesDir(null) + "/info"+trueIndex.toString()+".png";
             System.out.println(imageURL.toString());
             this.currentCard = Scenes.createScene(new CraftARContentImage(imageURL),imageURL);
