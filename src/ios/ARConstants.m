@@ -23,11 +23,11 @@ NSString *const AR_TEXT_SAVING_RESOURCE = @"Guardando recurso... Espera unos seg
 NSString *const AR_TEXT_FINISHED = @"Gracias por la espera.";
 NSString *const AR_TEXT_TITLE_MENU = @"Escanea tu minuta.";
 NSString *const AR_TEXT_TITLE_WELCOME = @"Escanea nuestra foto.";
-NSString *const AR_TEXT_HELP_MENU_STEP_1 = @"Escanea tu minuta para ver el detalle de los platos.";
+NSString *const AR_TEXT_HELP_MENU_STEP_1 = @"Escaneando tu minuta puedes ver el detalle de los platos.";
 NSString *const AR_TEXT_HELP_MENU_STEP_2 = @"Toca cualquiera de los platos para ver más detalles.";
-NSString *const AR_TEXT_HELP_WELCOME = @"Escanea nuestra foto para darte la bienvenida a nuestro banquete.";
+NSString *const AR_TEXT_HELP_WELCOME = @"Escanea el poster de bienvenida y empieza a disfrutar de la boda!";
 
-NSString *const AR_TEXT_CREDICTS = @"Hemos creado esta aplicación para todos nuestos invitados. Esperamos que te haya gustado y que hayas pasado un buen rato. \n\nGracias por haber venido a nuestra boda. \n\nEsta es una aplicación de Impacto Tecnológico";
+NSString *const AR_TEXT_CREDICTS = @"Aplicación de Impacto Tecnológico para bodas modernas y tecnológicas.";
 
 NSString *const AR_TEXT_BUTTON_BACK = @"Volver";
 NSString *const AR_TEXT_LABEL_SCANNING = @"Escaneando...";
