@@ -369,32 +369,29 @@ public class AugmentedActivity extends CraftARActivity implements CraftARSearchR
     @Override
     public void searchResults(ArrayList<CraftARResult> results, long l, int i) {
 
-        if(this.platosScenes.isEmpty())
-        {
-            if(results.size() != 0){
-                /**
-                 * Each result contains information about the match:
-                 *  - score
-                 *  - matched image
-                 *  - match bounding box
-                 *  - item
-                 */
-                CraftARResult result = results.get(0);
+          if(results.size() != 0){
+              /**
+               * Each result contains information about the match:
+               *  - score
+               *  - matched image
+               *  - match bounding box
+               *  - item
+               */
+              CraftARResult result = results.get(0);
 
 
-                /**
-                 * Get the item for this result and check if it is an AR item
-                 */
-                CraftARItem item = result.getItem();
-                if (item.isAR() && item.getItemName().equals(MINUTA)) {
-                    menuAugmented((CraftARItemAR) item);
-                } else if (item.isAR() && item.getItemName().equals(BIENVENIDA)) {
-                    welcomeAugmented((CraftARItemAR) item);
-                }
+              /**
+               * Get the item for this result and check if it is an AR item
+               */
+              CraftARItem item = result.getItem();
+              System.out.println(item.getItemName());
+              if (item.isAR() && item.getItemName().equals(MINUTA)) {
+                  menuAugmented((CraftARItemAR) item);
+              } else if (item.isAR() && item.getItemName().equals(BIENVENIDA)) {
+                  welcomeAugmented((CraftARItemAR) item);
+              }
 
-            }
-
-        }
+          }
     }
 
     private void welcomeAugmented(CraftARItemAR item) {
