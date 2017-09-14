@@ -47,6 +47,8 @@
             {
                 CraftARTrackingContentVideo* content = [[CraftARTrackingContentVideo alloc] initWithVideoFrom:urlResource];
                 [content setHasTransparencyMask:true];
+                [content setMuted:false];
+                [content setVolume: 1.0];
                 [scene setContent: content];
                 break;
             }
