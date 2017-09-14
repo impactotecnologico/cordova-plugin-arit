@@ -216,6 +216,11 @@ public class ARPlugin extends CordovaPlugin {
 
         int contador = (imagesArray.size() + videosArray.size() + minisArray.size()) * 2;
 
+        File tecnobodaFolder = new File(this.mobileImagePath);
+        if (!tecnobodaFolder.exists()){
+           tecnobodaFolder.mkdirs();
+        }
+
         contador = downloadAndCreate(imagesArray, contador);
         contador = downloadAndCreate(videosArray, contador);
         downloadAndCreate(minisArray, contador);
