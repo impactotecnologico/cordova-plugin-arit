@@ -10,8 +10,8 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.Button;
 
-import com.tecnoboda.josejulianyloiry.MainActivity;
-import com.tecnoboda.josejulianyloiry.R;
+import net.impactotecnologico.tecnoboda.MainActivity;
+import net.impactotecnologico.tecnoboda.R;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
