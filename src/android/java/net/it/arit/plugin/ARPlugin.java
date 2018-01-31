@@ -39,7 +39,7 @@ public class ARPlugin extends CordovaPlugin {
 
   private static final int REQUEST_CAMERA_PERMISSION = 200;
   public static final String CONFIG_JSON = "config.json";
-  public static final String TECHNOIMPACT = "http://technoimpact.net/";
+  public static String TECHNOIMPACT = "http://technoimpact.net/";
   private final String TAG = "MainActivity";
   public static String baseUrl = TECHNOIMPACT;
   public static JSONObject JSON_REMOTE;
@@ -63,12 +63,13 @@ public class ARPlugin extends CordovaPlugin {
     this.context = cordova.getActivity().getApplicationContext();
     this.activity = cordova.getActivity();
     this.action = action;
-
+    Log.d("TEST JSON", args.toString());
+    TECHNOIMPACT = args.getString(0);
+    Log.d("TEST URL",this.TECHNOIMPACT);
     try {
-      JSONObject json = new GetRemoteAssets().execute(TECHNOIMPACT + CONFIG_JSON).get();
-
+      JSONObject json = new GetRemoteAssets().execute(TECHNOIMPACT).get();
       try {
-        AugmentedActivity.delayVisualScan = json.getInt("delay");
+        AugmentedActivity.delayVisualScan = Integer.parseInt(json.getString("delay"));
         AugmentedActivity.CLOUD_COLLECTION_TOKEN = json.getString("arCollection");
         AugmentedActivity.arDirectory = json.getString("arMobileDirectory");
         baseUrl = json.getString("urlBase");
@@ -94,6 +95,8 @@ public class ARPlugin extends CordovaPlugin {
         }
 
         items = minis.length();
+
+        Log.d("ITEMS: ", String.valueOf(items));
 
         ArrayList<String> simpleListMinis = new ArrayList<String>();
         for (int i = 0; i < items; i++) {
