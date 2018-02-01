@@ -10,9 +10,6 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.Button;
 
-import net.impactotecnologico.tecnoboda.MainActivity;
-import net.impactotecnologico.tecnoboda.R;
-
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaWebView;
