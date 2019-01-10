@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="net.it.arit.plugin" version="0.0.2" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Augmented Reality IT</name>
+    <js-module name="ARPlugin" src="www/ARPlugin.js">
+        <clobbers target="ARPlugin" />
+    </js-module>
+
+    <platform name="ios">
+        <hook type="before_plugin_install" src="hooks/before_plugin_install/copy-sdk-catchoom-dependencies.sh" />
+        <hook type="before_plugin_install" src="hooks/before_plugin_install/copy-hook.sh" />
+        <hook type="after_prepare" src="hooks/after_prepare/configure_ats.sh"  />
+
+        <config-file target="config.xml" parent="/*">
+                <feature name="ARPlugin">
+                    <param name="ios-package" value="ARPlugin"/>
+                </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>Open the camera to recognise objects</string>
+        </config-file>
+
+
+        <header-file src="src/ios/ARPlugin.h" />
+        <header-file src="src/ios/ARDomains.h" />
+        <header-file src="src/ios/ARApplicationController.h" />
+        <header-file src="src/ios/NSArray.h" />
+        <header-file src="src/ios/ARAugmentedViewController.h" />
+        <header-file src="src/ios/ARScene.h" />
+        <header-file src="src/ios/ARBaseApiController.h" />
+        <header-file src="src/ios/ARConfig.h" />
+        <header-file src="src/ios/ARViewUtils.h" />
+        <header-file src="src/ios/ARConstants.h" />
+        <source-file src="src/ios/ARWaitingViewController.h" />
+
+        <source-file src="src/ios/ARPlugin.m" />
+        <source-file src="src/ios/ARApplicationController.m" />
+        <source-file src="src/ios/NSArray.m" />
+        <source-file src="src/ios/ARAugmentedViewController.m" />
+        <source-file src="src/ios/ARScene.m" />
+        <source-file src="src/ios/ARBaseApiController.m" />
+        <source-file src="src/ios/ARConfig.m" />
+        <source-file src="src/ios/ARViewUtils.m" />
+        <source-file src="src/ios/ARConstants.m" />
+        <source-file src="src/ios/ARWaitingViewController.m" />
+
+        <resource-file src="src/ios/next.png" />
+        <resource-file src="src/ios/prev.png" />
+        <resource-file src="src/ios/ARMain.storyboard" />
+        <resource-file src="src/ios/CatchoomSDK/CraftARResourcesAR.bundle" />
+
+        <!-- Frameworks not added on production plugin 
+        <framework src="src/ios/CatchoomSDK/Pods.framework" custom="true"  /> --> 
+        <framework src="src/ios/CatchoomSDK/CraftARAugmentedRealitySDK.framework" custom="true"  /> 
+        
+        <framework src="AudioToolbox.framework" />
+        <framework src="CoreMedia.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="AVFoundation.framework" />
+        <framework src="libstdc++.dylib" />
+        <framework src="libc++.dylib" />
+        <framework src="libz.dylib" />
+        <framework src="CoreLocation.framework" />
+        <framework src="AssetsLibrary.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="MobileCoreServices.framework" />
+     </platform>
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="ARPlugin">
+                <param name="android-package" value="net.it.arit.plugin.ARPlugin" />
+            </feature>
+        </config-file>
+
+        <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application">
+            <activity
+                android:label="AugmentedActivity"
+                android:name="net.it.arit.plugin.AugmentedActivity"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                android:screenOrientation="portrait"
+                android:configChanges="orientation|keyboardHidden" >
+            </activity>
+        </config-file>
+
+        <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-feature android:name="android.hardware.camera.autofocus" />
+        </config-file>
+        
+        <config-file parent="/app/src/main/" target="AndroidManifest.xml"></config-file>
+        
+        <source-file src="src/android/java/net/it/arit/plugin/ARPlugin.java" target-dir="src/net/it/arit/plugin" />
+        <source-file src="src/android/java/net/it/arit/plugin/AugmentedActivity.java" target-dir="src/net/it/arit/plugin" />
+        <source-file src="src/android/java/net/it/arit/plugin/Scenes.java" target-dir="src/net/it/arit/plugin" />
+        <source-file src="src/android/java/net/it/arit/plugin/Acciones.java" target-dir="src/net/it/arit/plugin" />
+
+        <source-file src="src/android/res/layout/activity_augmented_menu.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/activity_augmented_welcome.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/activity_main.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/craftar_camera.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/custom_dialog.xml" target-dir="res/layout"/>
+
+        <source-file src="src/android/res/drawable-hdpi/dialog_shape.xml" target-dir="res/drawable-hdpi"/>
+
+        <source-file src="src/android/res/menu/main.xml" target-dir="res/menu"/>
+        <source-file src="src/android/res/menu/menu_main.xml" target-dir="res/menu"/>
+
+        <source-file src="src/android/res/values/colors.xml" target-dir="res/values"/>
+        <source-file src="src/android/res/values/dimens.xml" target-dir="res/values"/>
+        <source-file src="src/android/res/values-sw600dp/dimens.xml" target-dir="res/values-sw600dp-land"/>
+        <source-file src="src/android/res/values-sw720dp-land/dimens.xml" target-dir="res/values-sw720dp-land"/>
+        <source-file src="src/android/res/values-w820dp/dimens.xml" target-dir="res/values-w820dp"/>
+
+        <source-file src="src/android/res/values/styles.xml" target-dir="res/values"/>
+        <source-file src="src/android/res/values-v11/styles.xml" target-dir="res/values-v11"/>
+        <source-file src="src/android/res/values-v14/styles.xml" target-dir="res/values-v14"/>
+
+        <source-file src="src/android/res/values/themes.xml" target-dir="res/values"/>
+
+
+        <source-file src="src/android/res/drawable-hdpi/minuta_mini.png" target-dir="res/drawable-hdpi"/>
+        <source-file src="src/android/res/drawable-hdpi/bienvenida_mini.png" target-dir="res/drawable-hdpi"/>
+
+        <source-file src="src/android/res/raw/next.png" target-dir="res/raw"/>
+        <source-file src="src/android/res/raw/prev.png" target-dir="res/raw"/>
+
+       <source-file src="src/android/jniLibs/armeabi-v7a/libimageutils.so" target-dir="libs/armeabi-v7a" />
+        <!-- AR-->
+       <source-file src="src/android/jniLibs/armeabi-v7a/libCraftARSDK.so" target-dir="libs/armeabi-v7a" />
+       <source-file src="src/android/jniLibs/armeabi-v7a/libCraftARSDK_neon.so" target-dir="libs/armeabi-v7a" />
+       <source-file src="src/android/jniLibs/armeabi-v7a/libneondetection.so" target-dir="libs/armeabi-v7a" />
+       <source-file src="src/android/jniLibs/armeabi-v7a/libCraftARTracking.so" target-dir="libs/armeabi-v7a" />
+        
+        <source-file src="src/android/libs/craftar-augmented-reality-sdk-android.jar" target-dir="libs" />
+        <source-file src="src/android/libs/sanselan-0_97-android-1.0.0.jar" target-dir="libs" />
+        <framework src="src/android/catchoom-exclude.gradle" custom="true" type="gradleReference" />
+    </platform>
+</plugin>
